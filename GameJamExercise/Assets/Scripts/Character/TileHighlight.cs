@@ -14,6 +14,10 @@ public class TileHighlight : MonoBehaviour {
         this.playerActions.SetSelector(transform.position);
     }
 
+    private void OnMouseDown() {
+        Debug.Log("sdas");
+    }
+
     private void OnMouseExit() {
         this.playerActions.DisableSelector();
     }

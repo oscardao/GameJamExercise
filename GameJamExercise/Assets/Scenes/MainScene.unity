@@ -472,7 +472,7 @@ MonoBehaviour:
   startRooms: []
   defaultRooms: []
   tilemap: {fileID: 19117998}
-  tile: {fileID: 11400000, guid: 22aa101c56948af4e8f13cbe31578b2d, type: 2}
+  tilePrefab: {fileID: 6632879156637247636, guid: 438a8776e3cc89447b42824d17f7145e, type: 3}
   numberOfTilesOffset: 10
   level: 2
   world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}

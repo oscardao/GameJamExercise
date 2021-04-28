@@ -11,7 +11,7 @@ public class WorldTile : MonoBehaviour {
 
     public void AddObject(GameObject gameObject) {
         if (!this.Objects.Contains(gameObject)) {
-            if (gameObject.GetComponent<IPositionable>() != null) gameObject.GetComponent<IPositionable>().Position = this.Position;
+            if (gameObject.GetComponent<IPositionable>() != null) gameObject.GetComponent<IPositionable>().Position = this;
             this.Objects.Add(gameObject);
             gameObject.transform.SetParent(transform);
         }

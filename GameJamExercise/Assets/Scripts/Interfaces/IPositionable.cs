@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IPositionable {
 
-    public Vector2Int Position {
+    public abstract WorldTile Position {
         get;
         set;
     }

@@ -9,8 +9,8 @@ public class Player : MonoBehaviour, ICommandable, IPositionable {
     [SerializeField]
     private PlayerActionController playerActionController;
 
-    private Vector2Int position;
-    public Vector2Int Position {
+    private WorldTile position;
+    public WorldTile Position {
         get { return this.position; }
         set { this.position = value; }
     }

@@ -27,7 +27,7 @@ public class PlayerActionController : MonoBehaviour {
     }
 
     public void HighlightTiles() {
-        List<WorldTile> tiles = this.world.GetNeighbourTiles(this.position.Position);
+        List<WorldTile> tiles = this.world.GetNeighbourTiles(this.position.Position.Position);
 
         for (int i = 0; i < tiles.Count; i++) {
             GameObject highlight = this.inactiveHighlights.Count > 0 ? this.inactiveHighlights.Pop() : InstantiateHighlight();
