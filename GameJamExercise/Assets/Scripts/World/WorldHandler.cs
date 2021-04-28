@@ -77,14 +77,12 @@ public class WorldHandler : MonoBehaviour {
         WorldTile playerSpawn = emptyTiles[Random.Range(0, emptyTiles.Count)];
         emptyTiles.Remove(playerSpawn);
         GameObject player = Instantiate(this.playerPrefab, playerSpawn.WorldPosition, Quaternion.identity);
-        player.GetComponent<IPositionable>().Position = playerSpawn.Position;
         playerSpawn.AddObject(player);
 
         for (int i = 0; i < 2; i++) {
             WorldTile enemySpawn = emptyTiles[Random.Range(0, emptyTiles.Count)];
             emptyTiles.Remove(enemySpawn);
             GameObject enemy = Instantiate(this.enemies[Random.Range(0, this.enemies.Length)], enemySpawn.WorldPosition, Quaternion.identity);
-            // enemy.GetComponent<IPositionable>().Position = enemySpawn.Position;
             enemySpawn.AddObject(enemy);
         }
     }
