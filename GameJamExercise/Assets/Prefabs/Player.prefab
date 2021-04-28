@@ -60,7 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
-  tileHighlight: {fileID: 7404204158688057328, guid: d20b1ac75286d854e840109d4037d7ef, type: 3}
+  highlightPrefab: {fileID: 7404204158688057328, guid: d20b1ac75286d854e840109d4037d7ef, type: 3}
+  selectorPrefab: {fileID: 22193872878392156, guid: 0066095a3efe8d44a9f07f02347cabc1, type: 3}
 --- !u!1 &8322854589349729167
 GameObject:
   m_ObjectHideFlags: 0
