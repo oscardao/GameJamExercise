@@ -74,16 +74,16 @@ public class WorldHandler : MonoBehaviour {
     private void AddObjects() {
         List<WorldTile> emptyTiles = this.world.EmptyTiles;
 
-        WorldTile playerSpawn = emptyTiles[Random.Range(0, emptyTiles.Count)];
-        emptyTiles.Remove(playerSpawn);
-        GameObject player = Instantiate(this.playerPrefab, playerSpawn.WorldPosition, Quaternion.identity);
-        playerSpawn.AddObject(player);
+        WorldTile playerTile = emptyTiles[Random.Range(0, emptyTiles.Count)];
+        emptyTiles.Remove(playerTile);
+        GameObject player = Instantiate(this.playerPrefab, playerTile.WorldPosition, Quaternion.identity);
+        playerTile.ObjectOnTile = player;
 
         for (int i = 0; i < 2; i++) {
-            WorldTile enemySpawn = emptyTiles[Random.Range(0, emptyTiles.Count)];
-            emptyTiles.Remove(enemySpawn);
-            GameObject enemy = Instantiate(this.enemies[Random.Range(0, this.enemies.Length)], enemySpawn.WorldPosition, Quaternion.identity);
-            enemySpawn.AddObject(enemy);
+            WorldTile enemyTile = emptyTiles[Random.Range(0, emptyTiles.Count)];
+            emptyTiles.Remove(enemyTile);
+            GameObject enemy = Instantiate(this.enemies[Random.Range(0, this.enemies.Length)], enemyTile.WorldPosition, Quaternion.identity);
+            enemyTile.ObjectOnTile = enemy;
         }
     }
 

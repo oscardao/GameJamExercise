@@ -1,11 +1,16 @@
-﻿using System.Collections;
+﻿using OsukaCreative.Utility.GameEvent;
+using System.Collections;
 using UnityEngine;
 
 public class TileHighlight : MonoBehaviour {
 
     public PlayerActionController playerActions;
+    [SerializeField]
+    private WorldTileEvent onClick;
+    private WorldTile tile;
 
     public void HighLight(WorldTile tile) {
+        this.tile = tile;
         transform.position = tile.WorldPosition;
         gameObject.SetActive(true);
     }
@@ -15,7 +20,8 @@ public class TileHighlight : MonoBehaviour {
     }
 
     private void OnMouseDown() {
-        Debug.Log("sdas");
+        this.playerActions.ClearHighlights();
+        this.onClick.Raise(this.tile);
     }
 
     private void OnMouseExit() {

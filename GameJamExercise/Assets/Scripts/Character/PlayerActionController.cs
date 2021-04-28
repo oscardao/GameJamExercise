@@ -30,14 +30,15 @@ public class PlayerActionController : MonoBehaviour {
         List<WorldTile> tiles = this.world.GetNeighbourTiles(this.position.Position.Position);
 
         for (int i = 0; i < tiles.Count; i++) {
-            GameObject highlight = this.inactiveHighlights.Count > 0 ? this.inactiveHighlights.Pop() : InstantiateHighlight();
-            this.activeHighlights.Push(highlight);
-            highlight.transform.position = tiles[i].WorldPosition;
-            highlight.SetActive(true);
+            GameObject highlightObject = this.inactiveHighlights.Count > 0 ? this.inactiveHighlights.Pop() : InstantiateHighlight();
+            this.activeHighlights.Push(highlightObject);
+            TileHighlight highlight = highlightObject.GetComponent<TileHighlight>();
+            highlight.HighLight(tiles[i]);
         }
     }
 
     public void ClearHighlights() {
+        this.selector.SetActive(false);
         while (this.activeHighlights.Count > 0) {
             GameObject highlight = this.activeHighlights.Pop();
             highlight.SetActive(false);
@@ -55,7 +56,8 @@ public class PlayerActionController : MonoBehaviour {
     }
 
     private GameObject InstantiateHighlight() {
-        GameObject highlight = Instantiate(this.highlightPrefab, transform);
+        GameObject highlight = Instantiate(this.highlightPrefab, Vector3.zero, Quaternion.identity);
+        highlight.SetActive(false);
         highlight.GetComponent<TileHighlight>().playerActions = this;
         return highlight;
     }

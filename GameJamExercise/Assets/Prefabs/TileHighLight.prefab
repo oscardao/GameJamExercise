@@ -126,3 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerActions: {fileID: 0}
+  onClick: {fileID: 11400000, guid: 963fbb732aaffe24aa381dcda06c4e16, type: 2}

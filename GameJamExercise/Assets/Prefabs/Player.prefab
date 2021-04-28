@@ -30,6 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3551121649557164118}
+  - {fileID: 8226392010942891831}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,8 +46,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7059f2758830914791ef67e9a07ee09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnHandler: {fileID: 11400000, guid: 02a5a1ac8d2f3884c9791a549a49d4e7, type: 2}
+  player: {fileID: 11400000, guid: 4d1fd4e3acdcdcc408b4b18b65a0711a, type: 2}
   playerActionController: {fileID: 7659128630817552505}
+  turnHandler: {fileID: 11400000, guid: 02a5a1ac8d2f3884c9791a549a49d4e7, type: 2}
+  baseTurns:
+    useConstant: 1
+    constantValue: 2
+    variable: {fileID: 0}
+  remainingTurns:
+    useConstant: 1
+    constantValue: 0
+    variable: {fileID: 0}
+  moveAction: {fileID: 11400000, guid: bef4ea13d7bcba24f8c7a0044248e66e, type: 2}
 --- !u!114 &7659128630817552505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +73,65 @@ MonoBehaviour:
   world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
   highlightPrefab: {fileID: 7404204158688057328, guid: d20b1ac75286d854e840109d4037d7ef, type: 3}
   selectorPrefab: {fileID: 22193872878392156, guid: 0066095a3efe8d44a9f07f02347cabc1, type: 3}
+--- !u!1 &6528110739813517011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8226392010942891831}
+  - component: {fileID: 5813503567804229276}
+  m_Layer: 0
+  m_Name: Events
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8226392010942891831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6528110739813517011}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 305469641003901214}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5813503567804229276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6528110739813517011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31bda6a51c6aed5449082dd8584571a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 963fbb732aaffe24aa381dcda06c4e16, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2453195959212052230}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: PerformAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8322854589349729167
 GameObject:
   m_ObjectHideFlags: 0
