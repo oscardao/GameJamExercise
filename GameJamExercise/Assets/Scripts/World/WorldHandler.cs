@@ -14,7 +14,7 @@ public class WorldHandler : MonoBehaviour {
     [SerializeField]
     private Tilemap tilemap;
     [SerializeField]
-    private TileBase tile;
+    private GameObject tilePrefab;
     [SerializeField, Min(2)]
     private int numberOfTilesOffset;
     [SerializeField]
@@ -31,14 +31,9 @@ public class WorldHandler : MonoBehaviour {
     public void Generate() {
         this.world.Clear();
 
-        List<Vector2Int> freeTileSpots = new List<Vector2Int>();
         int worldSize = CalculateWorldSize();
+        GenerateTiles(worldSize);
 
-        freeTileSpots.Add(Vector2Int.zero);
-
-        while (this.world.TileCount < worldSize) {
-            AddTile(freeTileSpots);
-        }
         AddObjects();
     }
 
@@ -46,11 +41,24 @@ public class WorldHandler : MonoBehaviour {
 
     }
 
+    private void GenerateTiles(int worldSize) {
+        List<Vector2Int> freeTileSpots = new List<Vector2Int>();
+        freeTileSpots.Add(Vector2Int.zero);
+        while (this.world.TileCount < worldSize) {
+            AddTile(freeTileSpots);
+        }
+    }
+
     private void AddTile(List<Vector2Int> freeTileSpots) {
         Vector2Int spot = freeTileSpots[Random.Range(0, freeTileSpots.Count)];
         freeTileSpots.Remove(spot);
-        this.world.AddTile(new WorldTile(spot, this.tilemap.GetCellCenterWorld((Vector3Int)spot)));
-        this.tilemap.SetTile((Vector3Int)spot, this.tile);
+
+        GameObject newTile = Instantiate(this.tilePrefab, transform);
+        WorldTile worldTile = newTile.GetComponent<WorldTile>();
+        worldTile.Position = spot;
+        newTile.transform.position = this.tilemap.GetCellCenterWorld((Vector3Int)spot);
+
+        this.world.AddTile(worldTile);
 
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
@@ -76,7 +84,7 @@ public class WorldHandler : MonoBehaviour {
             WorldTile enemySpawn = emptyTiles[Random.Range(0, emptyTiles.Count)];
             emptyTiles.Remove(enemySpawn);
             GameObject enemy = Instantiate(this.enemies[Random.Range(0, this.enemies.Length)], enemySpawn.WorldPosition, Quaternion.identity);
-            enemy.GetComponent<IPositionable>().Position = enemySpawn.Position;
+            // enemy.GetComponent<IPositionable>().Position = enemySpawn.Position;
             enemySpawn.AddObject(enemy);
         }
     }
