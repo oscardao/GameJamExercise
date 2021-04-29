@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : BaseEntity, ICommandable {
+public class Player : BaseEntity, ICommandable, IFlipable {
 
     [SerializeField]
     private GameObjectVariable player;
@@ -21,9 +21,16 @@ public class Player : BaseEntity, ICommandable {
     [SerializeField]
     private IntReference remainingTurns;
     [SerializeField]
-    private Movement moveAction;
+    private BaseAction defaultAction;
+
+    private bool isFlipped;
+    public bool IsFlipped {
+        get { return this.isFlipped; }
+        set { this.isFlipped = value; }
+    }
 
     private void Awake() {
+        this.isFlipped = false;
         this.player.Value = gameObject;
         this.turnHandler.AddCommandable(this.team, this);
     }
@@ -41,7 +48,8 @@ public class Player : BaseEntity, ICommandable {
         this.remainingTurns.Value--;
         Debug.Log(targetTile);
         if (targetTile.ObjectOnTile == null) {
-            yield return this.moveAction.MoveTo(targetTile, gameObject);
+            this.defaultAction.Perform(targetTile, gameObject);
+            yield return new WaitForSeconds(this.defaultAction.Duration);
         } else {
             GameObject objectOnTile = targetTile.ObjectOnTile;
         }

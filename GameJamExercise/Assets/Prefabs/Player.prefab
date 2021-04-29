@@ -49,6 +49,7 @@ MonoBehaviour:
   player: {fileID: 11400000, guid: 4d1fd4e3acdcdcc408b4b18b65a0711a, type: 2}
   playerActionController: {fileID: 7659128630817552505}
   turnHandler: {fileID: 11400000, guid: 02a5a1ac8d2f3884c9791a549a49d4e7, type: 2}
+  team: 0
   baseTurns:
     useConstant: 1
     constantValue: 2
@@ -57,7 +58,7 @@ MonoBehaviour:
     useConstant: 1
     constantValue: 0
     variable: {fileID: 0}
-  moveAction: {fileID: 11400000, guid: bef4ea13d7bcba24f8c7a0044248e66e, type: 2}
+  defaultAction: {fileID: 11400000, guid: 2771268d48eacee48acf905737802cf4, type: 2}
 --- !u!114 &7659128630817552505
 MonoBehaviour:
   m_ObjectHideFlags: 0
