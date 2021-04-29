@@ -150,3 +150,5 @@ MonoBehaviour:
     useConstant: 0
     constantValue: {fileID: 0}
     variable: {fileID: 11400000, guid: 4d1fd4e3acdcdcc408b4b18b65a0711a, type: 2}
+  turnHandler: {fileID: 11400000, guid: 02a5a1ac8d2f3884c9791a549a49d4e7, type: 2}
+  team: 1

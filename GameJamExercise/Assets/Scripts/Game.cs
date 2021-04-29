@@ -19,7 +19,7 @@ public class Game : MonoBehaviour {
 
     public void StartGame() {
         this.world.Generate();
-        this.turnHandler.NextTurn();
+        this.turnHandler.StartRound();
     }
 
     public void NextLevel() {

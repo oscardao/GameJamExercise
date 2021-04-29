@@ -11,7 +11,7 @@ public class World : ScriptableObject {
         get {
             List<WorldTile> tiles = new List<WorldTile>();
             foreach (KeyValuePair<Vector2Int, WorldTile> entry in this.tiles) {
-                if (entry.Value.ObjectOnTile == null) tiles.Add(entry.Value);
+                if (entry.Value.IsEmpty) tiles.Add(entry.Value);
             }
             return tiles;
         }

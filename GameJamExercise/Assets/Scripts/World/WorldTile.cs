@@ -15,6 +15,11 @@ public class WorldTile : MonoBehaviour {
             value.transform.SetParent(transform);
         }
     }
+
+    public bool IsEmpty {
+        get { return this.objectOnTile == null; }
+    }
+
     public Vector2Int Position;
     public Vector3 WorldPosition { get { return transform.position; } }
 

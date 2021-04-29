@@ -15,6 +15,8 @@ public class Player : BaseEntity, ICommandable {
     [SerializeField]
     private TurnHandler turnHandler;
     [SerializeField]
+    private int team;
+    [SerializeField]
     private IntReference baseTurns;
     [SerializeField]
     private IntReference remainingTurns;
@@ -23,7 +25,7 @@ public class Player : BaseEntity, ICommandable {
 
     private void Awake() {
         this.player.Value = gameObject;
-        this.turnHandler.player = this;
+        this.turnHandler.AddCommandable(this.team, this);
     }
 
     public void TakeTurn() {
@@ -36,6 +38,7 @@ public class Player : BaseEntity, ICommandable {
     }
 
     public IEnumerator PerformActionCO(WorldTile targetTile) {
+        this.remainingTurns.Value--;
         Debug.Log(targetTile);
         if (targetTile.ObjectOnTile == null) {
             yield return this.moveAction.MoveTo(targetTile, gameObject);
