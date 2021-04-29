@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[RequireComponent(typeof(IPositionable))]
 public class PlayerActionController : MonoBehaviour {
 
     [SerializeField]

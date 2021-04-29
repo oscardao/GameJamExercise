@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8312b0f797dee845a911e3af4cbae07, type: 3}
   m_Name: DefaultMoveAction
   m_EditorClassIdentifier: 
-  duration: 0
-  flipFractionOfDuration: 0
-  rightFaceDirection: 0
-  leftFaceDirection: 0
+  duration: 0.115
+  flipFractionOfDuration: 1

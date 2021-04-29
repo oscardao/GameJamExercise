@@ -112,6 +112,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5336649744597104222}
   - component: {fileID: 7317223157266035819}
+  - component: {fileID: 5062647623854659086}
+  - component: {fileID: 7380922326714603448}
+  - component: {fileID: 7738133433609775681}
   m_Layer: 0
   m_Name: Enemy_Orc
   m_TagString: Untagged
@@ -152,3 +155,44 @@ MonoBehaviour:
     variable: {fileID: 11400000, guid: 4d1fd4e3acdcdcc408b4b18b65a0711a, type: 2}
   turnHandler: {fileID: 11400000, guid: 02a5a1ac8d2f3884c9791a549a49d4e7, type: 2}
   team: 1
+--- !u!114 &5062647623854659086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419710753641762874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec93f312e68f81a4f844f268dff8a606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7380922326714603448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419710753641762874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6dc95c12bb8334d9dd6ce3d7f4afcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valueOnAwake: 0
+--- !u!114 &7738133433609775681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419710753641762874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5783e79645d11d443aaf22820cb159a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HasArmor:
+    useConstant: 1
+    constantValue: 0
+    variable: {fileID: 0}

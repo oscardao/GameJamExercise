@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : BaseEntity, ICommandable, IFlipable {
+public class Player : MonoBehaviour, ICommandable {
 
     [SerializeField]
     private GameObjectVariable player;
@@ -23,14 +23,7 @@ public class Player : BaseEntity, ICommandable, IFlipable {
     [SerializeField]
     private BaseAction defaultAction;
 
-    private bool isFlipped;
-    public bool IsFlipped {
-        get { return this.isFlipped; }
-        set { this.isFlipped = value; }
-    }
-
     private void Awake() {
-        this.isFlipped = false;
         this.player.Value = gameObject;
         this.turnHandler.AddCommandable(this.team, this);
     }

@@ -11,33 +11,8 @@ public class MoveAction : BaseAction {
     private float flipFractionOfDuration;
 
     public override void Perform(WorldTile tile, GameObject gameObject) {
-
-        Flip(tile, gameObject);
+        tile.StartCoroutine(this.flip.FlipObject(tile, this.duration * this.flipFractionOfDuration, gameObject));
         tile.StartCoroutine(this.move.MoveTo(tile, this.duration, gameObject));
-    }
-
-    private void Flip(WorldTile tile, GameObject gameObject) {
-        Vector3 currentPosition = gameObject.transform.position;
-        Vector3 targetPosition = tile.WorldPosition;
-
-        bool shouldFlip = false;
-        float y = 0;
-
-        Quaternion currentRotation = gameObject.transform.rotation;
-        IFlipable flipable = gameObject.GetComponent<IFlipable>();
-
-        if ((currentPosition.x > targetPosition.x) && !flipable.IsFlipped) {
-            y = 180;
-            shouldFlip = true;
-        } else if ((currentPosition.x < targetPosition.x) && flipable.IsFlipped) {
-            shouldFlip = true;
-        }
-
-        if (shouldFlip) {
-            flipable.IsFlipped = !flipable.IsFlipped;
-            Quaternion flipDirection = Quaternion.Euler(new Vector3(currentRotation.x, y, currentRotation.z));
-            tile.StartCoroutine(this.flip.Perform(this.duration * this.flipFractionOfDuration, flipDirection, gameObject));
-        }
     }
 
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 
-public class Enemy : BaseEntity, IInteractable, ICommandable {
+public class Enemy : MonoBehaviour, IInteractable, ICommandable {
 
     [SerializeField]
     private GameObjectReference target;

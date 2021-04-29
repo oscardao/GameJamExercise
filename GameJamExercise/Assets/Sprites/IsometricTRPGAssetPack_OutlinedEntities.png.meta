@@ -32,6 +32,12 @@ TextureImporter:
   - first:
       213: -8419332328266408439
     second: IsometricTRPGAssetPack_OutlinedEntities_9
+  - first:
+      213: -4401818238553912293
+    second: IsometricTRPGAssetPack_OutlinedEntities_10
+  - first:
+      213: -3297462362577079281
+    second: IsometricTRPGAssetPack_OutlinedEntities_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -362,6 +368,48 @@ TextureImporter:
       bones: []
       spriteID: 90ed7bfdad5882b80800000000000000
       internalID: -8419332328266408439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IsometricTRPGAssetPack_OutlinedEntities_10
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 445
+        width: 10
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18181819}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c882542a999e2c0800000000000000
+      internalID: -4401818238553912293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IsometricTRPGAssetPack_OutlinedEntities_11
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 410
+        width: 11
+        height: 11
+      alignment: 9
+      pivot: {x: 0.54545456, y: 0.18181819}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f047f52b37f0d32d0800000000000000
+      internalID: -3297462362577079281
       vertices: []
       indices: 
       edges: []
