@@ -58,9 +58,9 @@ MonoBehaviour:
     constantValue: 2
     variable: {fileID: 0}
   remainingTurns:
-    useConstant: 1
+    useConstant: 0
     constantValue: 0
-    variable: {fileID: 0}
+    variable: {fileID: 11400000, guid: a78c2231296d90444803af607fce8801, type: 2}
   defaultAction: {fileID: 11400000, guid: 2771268d48eacee48acf905737802cf4, type: 2}
 --- !u!114 &7659128630817552505
 MonoBehaviour:
@@ -106,6 +106,11 @@ MonoBehaviour:
     useConstant: 1
     constantValue: 0
     variable: {fileID: 0}
+  onPlayerDeath: {fileID: 11400000, guid: 76f085baa54c7814296531be418f8a11, type: 2}
+  IsGameOn:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: f00e3a8723fccce4bbaf7146a83cd425, type: 2}
 --- !u!114 &7980209849787680338
 MonoBehaviour:
   m_ObjectHideFlags: 0

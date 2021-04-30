@@ -41,12 +41,10 @@ public class Enemy : MonoBehaviour, IInteractable, ICommandable {
     }
 
     private IEnumerator PerformAction() {
-
         Stack<WorldTile> pathToTarget = new Stack<WorldTile>();
         IPositionable targetPositionable = this.target.Value.GetComponent<IPositionable>();
         yield return this.pathFinding.FindPath(targetPositionable.WorldTile, this.positionable.WorldTile, pathToTarget);
 
-        Debug.Log(pathToTarget.Count);
         while (pathToTarget.Count > 0) {
             WorldTile tile = pathToTarget.Pop();
             Debug.Log("IsOnTile: " + this.positionable.WorldTile.Position + "Checking Tile: " + tile.ToString());
@@ -73,7 +71,6 @@ public class Enemy : MonoBehaviour, IInteractable, ICommandable {
             }
         }
 
-        Debug.Log("Passing Turn");
         this.turnHandler.NextTurn();
     }
 

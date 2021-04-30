@@ -28,7 +28,6 @@ public class PathFinding : ScriptableObject {
             }
 
             Node tile = queue.Pop();
-            Debug.Log("Popping node: " + tile.Tile.Position);
             if (EvaluateTile(tile, endTile, visitedTiles, queue)) {
                 break;
             }
@@ -38,7 +37,6 @@ public class PathFinding : ScriptableObject {
 
         while (visitedTiles.ContainsKey(currentPosition) && visitedTiles[currentPosition] != null) {
             if (currentPosition != null) {
-                Debug.Log("Pushig: " + currentPosition.Position);
                 outPath.Push(currentPosition);
             }
             currentPosition = visitedTiles[currentPosition].Tile;
@@ -48,18 +46,14 @@ public class PathFinding : ScriptableObject {
 
     private bool EvaluateTile(Node evaluatedNode, WorldTile target, Dictionary<WorldTile, Node> visitedTiles, Stack<Node> queue) {
         if (visitedTiles.ContainsKey(evaluatedNode.Tile)) {
-            Debug.Log("Contains");
             return false;
         }
-
 
         visitedTiles.Add(evaluatedNode.Tile, evaluatedNode.Link);
         if (evaluatedNode.Tile == target) {
             Debug.Log("End Found: EvaluatedNode=" + evaluatedNode.Tile.Position + "  EndNode=" + target.Position);
             return true;
         }
-
-
 
         List<WorldTile> neighbourTiles = this.world.GetNeighbourTiles(evaluatedNode.Tile.Position);
         for (int i = 0; i < neighbourTiles.Count; i++) {
@@ -68,7 +62,6 @@ public class PathFinding : ScriptableObject {
             }
             queue.Push(new Node(neighbourTiles[i], evaluatedNode));
         }
-        Debug.Log("None");
         return false;
 
     }

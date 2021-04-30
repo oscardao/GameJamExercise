@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eda795c2b8c8594a95e1588cbd30379, type: 3}
   m_Name: TurnHandler
   m_EditorClassIdentifier: 
+  IsGameOn:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: f00e3a8723fccce4bbaf7146a83cd425, type: 2}

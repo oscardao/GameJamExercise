@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using OsukaCreative.Utility.Variables;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ public class TurnHandler : ScriptableObject {
 
     private List<ICommandable> round;
     private int currentTurn;
+
+    [SerializeField]
+    private BoolReference IsGameOn;
 
     public void AddCommandable(int team, ICommandable commandable) {
         if (!this.teams.ContainsKey(team)) {
@@ -32,11 +36,14 @@ public class TurnHandler : ScriptableObject {
     }
 
     public void StartRound() {
+        this.IsGameOn.Value = true;
         PrepareRound();
         NextTurn();
     }
 
     public void NextTurn() {
+        if (!this.IsGameOn.Value) return;
+
         this.round[this.currentTurn].TakeTurn();
         this.currentTurn++;
 
