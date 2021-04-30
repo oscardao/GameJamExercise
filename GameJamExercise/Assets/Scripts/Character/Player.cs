@@ -43,6 +43,7 @@ public class Player : MonoBehaviour, ICommandable {
         if (targetTile.ObjectOnTile == null) {
             this.defaultAction.Perform(targetTile, gameObject);
             yield return new WaitForSeconds(this.defaultAction.Duration);
+
         } else {
             GameObject objectOnTile = targetTile.ObjectOnTile;
         }

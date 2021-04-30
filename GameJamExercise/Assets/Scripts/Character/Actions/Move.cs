@@ -4,7 +4,7 @@ using UnityEngine;
 public class Move {
 
     public IEnumerator MoveTo(WorldTile targetTile, float duration, GameObject gameObject) {
-        WorldTile currentTile = gameObject.GetComponent<IPositionable>().Position;
+        WorldTile currentTile = gameObject.GetComponent<IPositionable>().WorldTile;
         currentTile.ObjectOnTile = null;
         targetTile.ObjectOnTile = gameObject;
         yield return MoveCO(targetTile.WorldPosition, duration, gameObject);

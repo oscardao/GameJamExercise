@@ -11,7 +11,7 @@ public class WorldTile : MonoBehaviour {
         set {
             this.objectOnTile = value;
             if (value == null) return;
-            value.GetComponent<IPositionable>().Position = this;
+            value.GetComponent<IPositionable>().WorldTile = this;
             value.transform.SetParent(transform);
         }
     }
@@ -23,4 +23,7 @@ public class WorldTile : MonoBehaviour {
     public Vector2Int Position;
     public Vector3 WorldPosition { get { return transform.position; } }
 
+    public override string ToString() {
+        return $"Tile: [Position={this.Position}, WorldPosition={WorldPosition}, ObjectOnTile={this.objectOnTile}, IsEmpty={this.IsEmpty}]";
+    }
 }

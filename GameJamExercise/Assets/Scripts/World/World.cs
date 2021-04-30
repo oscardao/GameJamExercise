@@ -46,6 +46,10 @@ public class World : ScriptableObject {
         return this.tiles.ContainsKey(position);
     }
 
+    public WorldTile GetTile(Vector2Int position) {
+        return this.tiles[position];
+    }
+
     public void Clear() {
         this.tiles = new Dictionary<Vector2Int, WorldTile>();
     }
