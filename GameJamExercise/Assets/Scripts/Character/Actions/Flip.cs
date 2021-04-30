@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Flip {
 
-    public IEnumerator FlipObject(WorldTile tile, float duration, GameObject gameObject) {
+    public IEnumerator FlipObject(Vector3 towardsPosition, float duration, GameObject gameObject) {
         Vector3 currentPosition = gameObject.transform.position;
-        Vector3 targetPosition = tile.WorldPosition;
 
         bool shouldFlip = false;
         float y = 0;
@@ -14,10 +13,10 @@ public class Flip {
         Quaternion currentRotation = gameObject.transform.rotation;
         IFlipable flipable = gameObject.GetComponent<IFlipable>();
 
-        if ((currentPosition.x > targetPosition.x) && !flipable.IsFlipped) {
+        if ((currentPosition.x > towardsPosition.x) && !flipable.IsFlipped) {
             y = 180;
             shouldFlip = true;
-        } else if ((currentPosition.x < targetPosition.x) && flipable.IsFlipped) {
+        } else if ((currentPosition.x < towardsPosition.x) && flipable.IsFlipped) {
             shouldFlip = true;
         }
 

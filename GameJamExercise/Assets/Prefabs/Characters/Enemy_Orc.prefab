@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 5062647623854659086}
   - component: {fileID: 7380922326714603448}
   - component: {fileID: 7738133433609775681}
+  - component: {fileID: 3126396779035055240}
   m_Layer: 0
   m_Name: Enemy_Orc
   m_TagString: Untagged
@@ -151,14 +152,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnHandler: {fileID: 11400000, guid: 02a5a1ac8d2f3884c9791a549a49d4e7, type: 2}
   team: 1
-  world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
   target:
     useConstant: 0
     constantValue: {fileID: 0}
     variable: {fileID: 11400000, guid: 4d1fd4e3acdcdcc408b4b18b65a0711a, type: 2}
-  pathFinding: {fileID: 11400000, guid: 8105fccbe61f5e34fa936d835b2a392e, type: 2}
-  moveAction: {fileID: 11400000, guid: 2771268d48eacee48acf905737802cf4, type: 2}
-  attackAction: {fileID: 0}
+  brain: {fileID: 11400000, guid: d709d1d24c46b5b46a47854fb0dfac9d, type: 2}
 --- !u!114 &5062647623854659086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,3 +198,21 @@ MonoBehaviour:
     useConstant: 1
     constantValue: 0
     variable: {fileID: 0}
+  onPlayerDeath: {fileID: 0}
+  IsGameOn:
+    useConstant: 1
+    constantValue: 0
+    variable: {fileID: 0}
+--- !u!114 &3126396779035055240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419710753641762874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d7552276c9fd14ca6c06fc0c7aa40e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 7878324797165077643}

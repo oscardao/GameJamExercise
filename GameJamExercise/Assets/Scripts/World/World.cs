@@ -21,6 +21,10 @@ public class World : ScriptableObject {
         get { return this.tiles.Count; }
     }
 
+    public List<WorldTile> GetNeighbourTiles(WorldTile tile) {
+        return GetNeighbourTiles(tile.Position);
+    }
+
     public List<WorldTile> GetNeighbourTiles(Vector2Int position) {
         List<WorldTile> tiles = new List<WorldTile>();
 

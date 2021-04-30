@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d406af2463b66ea4c958ad9030be9e31, type: 3}
+  m_Name: SimpleAIBrain
+  m_EditorClassIdentifier: 
+  world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
+  moveAction: {fileID: 11400000, guid: 2771268d48eacee48acf905737802cf4, type: 2}
+  switchAction: {fileID: 0}
+  attackAction: {fileID: 11400000, guid: d8320df6c79db2e4a8852cca505d38de, type: 2}
+  pathFinding: {fileID: 11400000, guid: 8105fccbe61f5e34fa936d835b2a392e, type: 2}
