@@ -4,18 +4,50 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Actions/Attack")]
 public class AttackAction : BaseAction {
 
+    public override float Duration { get { return this.duration + this.PreAttackDuration; } }
+
+    [Header("Attack Properties")]
     [SerializeField]
-    private Attack attack = new Attack();
-    private Flip flip = new Flip();
+    private float PreAttackDuration;
+    [Header("Animations")]
+    [SerializeField]
+    private string onPreAttackTrigger = "onPrepareAttack";
 
-    public override void Perform(WorldTile tile, GameObject gameObject) {
-        GameObject objectOnTile = tile.ObjectOnTile;
+    [Header("Effects")]
+    [SerializeField]
+    private Attack attack;
+    [SerializeField]
+    private OnDamage damage;
+    [SerializeField]
+    private Flip flip;
+    [SerializeField]
+    private MoveTowards moveTowards;
 
-        tile.StartCoroutine(this.flip.FlipObject(objectOnTile.transform.position, 0, gameObject));
-        tile.StartCoroutine(this.flip.FlipObject(gameObject.transform.position, 0, objectOnTile));
+    public override void Perform(WorldTile tile, GameObject attacker) {
+        tile.StartCoroutine(AttackCO(tile, attacker));
+    }
 
-        tile.StartCoroutine(this.attack.AttackTarget(objectOnTile, this.Duration, gameObject));
+    private IEnumerator AttackCO(WorldTile tile, GameObject attacker) {
+        IAnimateable attackerAnimator = attacker.GetComponent<IAnimateable>();
+        attackerAnimator.SetTrigger(this.onPreAttackTrigger);
 
+        yield return new WaitForSeconds(this.PreAttackDuration);
+        PerformEffects(tile, attacker);
+    }
+
+    private void PerformEffects(WorldTile tile, GameObject attacker) {
+        GameObject target = tile.ObjectOnTile;
+
+        tile.StartCoroutine(this.flip.FlipObject(target.transform.position, 0, attacker));
+        tile.StartCoroutine(this.flip.FlipObject(attacker.transform.position, 0, target));
+
+        tile.StartCoroutine(this.attack.AttackTarget(target, this.duration, attacker));
+
+        tile.StartCoroutine(this.damage.DamageObject(target, this.duration));
+
+        Vector3 knockbackDirection = target.transform.position - attacker.transform.position;
+        tile.StartCoroutine(this.moveTowards.MoveObjectTowards(target, knockbackDirection, this.duration));
+        tile.StartCoroutine(this.moveTowards.MoveObjectTowards(attacker, knockbackDirection, this.duration));
     }
 
 }

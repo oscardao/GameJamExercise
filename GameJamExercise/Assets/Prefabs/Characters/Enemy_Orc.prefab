@@ -113,7 +113,6 @@ GameObject:
   - component: {fileID: 5336649744597104222}
   - component: {fileID: 7317223157266035819}
   - component: {fileID: 5062647623854659086}
-  - component: {fileID: 7380922326714603448}
   - component: {fileID: 7738133433609775681}
   - component: {fileID: 3126396779035055240}
   m_Layer: 0
@@ -169,19 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec93f312e68f81a4f844f268dff8a606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7380922326714603448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419710753641762874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf6dc95c12bb8334d9dd6ce3d7f4afcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  valueOnAwake: 0
 --- !u!114 &7738133433609775681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,3 +202,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7878324797165077643}
+  spriteRenderer: {fileID: 857393896340021478}
+  animateableTransform: {fileID: 4805513424338652444}
+  valueOnAwake: 0

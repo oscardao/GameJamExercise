@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-
-public class Flip {
+[CreateAssetMenu(menuName = "Actions/Effects/Flip")]
+public class Flip : ScriptableObject {
 
     public IEnumerator FlipObject(Vector3 towardsPosition, float duration, GameObject gameObject) {
         Vector3 currentPosition = gameObject.transform.position;
@@ -23,14 +23,13 @@ public class Flip {
         if (shouldFlip) {
             flipable.IsFlipped = !flipable.IsFlipped;
             Quaternion flipDirection = Quaternion.Euler(new Vector3(currentRotation.x, y, currentRotation.z));
-            yield return Perform(duration, flipDirection, gameObject);
+            yield return Perform(duration, flipDirection, flipable.FlipableTransform);
         }
 
     }
 
-    private IEnumerator Perform(float duration, Quaternion endValue, GameObject gameObject) {
+    private IEnumerator Perform(float duration, Quaternion endValue, Transform transform) {
         float time = 0;
-        Transform transform = gameObject.transform;
         Quaternion startValue = transform.rotation;
 
         while (time < duration) {

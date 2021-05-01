@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Move {
+[CreateAssetMenu(menuName = "Actions/Effects/Move")]
+public class Move : ScriptableObject {
 
     public IEnumerator MoveTo(WorldTile targetTile, float duration, GameObject gameObject) {
         WorldTile currentTile = gameObject.GetComponent<IPositionable>().WorldTile;

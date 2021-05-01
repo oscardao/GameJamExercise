@@ -4,8 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Actions/Move")]
 public class MoveAction : BaseAction {
 
-    private Flip flip = new Flip();
-    private Move move = new Move();
+    [Header("Effects")]
+    [SerializeField]
+    private Flip flip;
+    [SerializeField]
+    private Move move;
 
     [SerializeField, Range(0, 1)]
     private float flipFractionOfDuration;

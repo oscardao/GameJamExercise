@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: DefaultMoveAction
   m_EditorClassIdentifier: 
   duration: 0.115
+  flip: {fileID: 11400000, guid: e38a4fe667c45c84ca2f219d86693a63, type: 2}
+  move: {fileID: 11400000, guid: c36cf538a239ec04a87a58881e5d2f77, type: 2}
   flipFractionOfDuration: 1
