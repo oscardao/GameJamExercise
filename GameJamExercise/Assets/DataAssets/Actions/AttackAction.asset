@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857e866854d35b142be79b2e02cf0a2d, type: 3}
   m_Name: AttackAction
   m_EditorClassIdentifier: 
-  duration: 1
+  duration: 0.75
   PreAttackDuration: 0.25
   onPreAttackTrigger: onPrepareAttack
   attack: {fileID: 11400000, guid: 39a7628deeefb6f4f98630f10ff48fe3, type: 2}

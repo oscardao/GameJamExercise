@@ -30,7 +30,7 @@ public class OnDamage : ScriptableObject {
         while (time < duration) {
             time += Time.deltaTime;
 
-            spriteRenderer.material.SetFloat("_FlashAmount", 0.6f - (time / duration));
+            spriteRenderer.material.SetFloat("_FlashAmount", 1f - (time / duration));
             yield return null;
         }
 

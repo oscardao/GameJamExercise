@@ -31,7 +31,7 @@ public class WorldHandler : MonoBehaviour {
     public void Generate() {
         this.world.Clear();
 
-        int worldSize = CalculateWorldSize();
+        int worldSize = this.level + this.numberOfTilesOffset;
         GenerateTiles(worldSize);
 
         AddObjects();
@@ -87,8 +87,5 @@ public class WorldHandler : MonoBehaviour {
         }
     }
 
-    private int CalculateWorldSize() {
-        return this.level + this.numberOfTilesOffset;
-    }
 
 }

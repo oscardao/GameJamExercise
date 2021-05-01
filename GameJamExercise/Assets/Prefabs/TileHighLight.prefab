@@ -100,7 +100,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.42857146}
     oldSize: {x: 1, y: 0.4375}
     newSize: {x: 1, y: 0.4375}
     adaptiveTilingThreshold: 0.5
@@ -126,4 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerActions: {fileID: 0}
-  onClick: {fileID: 11400000, guid: 963fbb732aaffe24aa381dcda06c4e16, type: 2}
+  player:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    variable: {fileID: 11400000, guid: 4d1fd4e3acdcdcc408b4b18b65a0711a, type: 2}
+  defaultInteraction: {fileID: 11400000, guid: cd5ccad64ae1440478512edafba20621, type: 2}

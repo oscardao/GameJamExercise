@@ -8,6 +8,6 @@ public abstract class BaseAction : ScriptableObject {
     protected float duration;
     public virtual float Duration { get { return this.duration; } }
 
-    public abstract void Perform(WorldTile tile, GameObject gameObject);
+    public abstract void Perform(WorldTile tile, GameObject performer);
 
 }

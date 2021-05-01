@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Enemy : MonoBehaviour, IInteractable, ICommandable, ITargeting {
+public class Enemy : MonoBehaviour, ICommandable, ITargeting {
 
     [Header("Turn Handling")]
     [SerializeField]
@@ -25,10 +25,6 @@ public class Enemy : MonoBehaviour, IInteractable, ICommandable, ITargeting {
 
     private void Awake() {
         this.turnHandler.AddCommandable(this.team, this);
-    }
-
-    public void OnInteract(GameObject interacter) {
-
     }
 
     public void TakeTurn() {

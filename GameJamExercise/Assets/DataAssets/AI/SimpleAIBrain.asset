@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
   moveAction: {fileID: 11400000, guid: 2771268d48eacee48acf905737802cf4, type: 2}
-  switchAction: {fileID: 0}
+  switchAction: {fileID: 11400000, guid: de95bf3e1333eec4999500f2692d571b, type: 2}
   attackAction: {fileID: 11400000, guid: d8320df6c79db2e4a8852cca505d38de, type: 2}
   pathFinding: {fileID: 11400000, guid: 8105fccbe61f5e34fa936d835b2a392e, type: 2}

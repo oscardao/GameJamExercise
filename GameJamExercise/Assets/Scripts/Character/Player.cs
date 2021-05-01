@@ -10,6 +10,8 @@ public class Player : MonoBehaviour, ICommandable {
 
     [SerializeField]
     private PlayerActionController playerActionController;
+    [SerializeField]
+    private BoolReference isGameOn;
 
     [Header("Turn")]
     [SerializeField]
@@ -20,8 +22,6 @@ public class Player : MonoBehaviour, ICommandable {
     private IntReference baseTurns;
     [SerializeField]
     private IntReference remainingTurns;
-    [SerializeField]
-    private BaseAction defaultAction;
 
     private void Awake() {
         this.player.Value = gameObject;
@@ -33,26 +33,23 @@ public class Player : MonoBehaviour, ICommandable {
         this.playerActionController.HighlightTiles();
     }
 
-    public void PerformAction(WorldTile targetTile) {
-        StartCoroutine(PerformActionCO(targetTile));
+    public void PerformAction(BaseInteraction interaction, WorldTile tile) {
+        StartCoroutine(PerformActionCO(interaction, tile));
     }
 
-    public IEnumerator PerformActionCO(WorldTile targetTile) {
+    public IEnumerator PerformActionCO(BaseInteraction interaction, WorldTile tile) {
         this.remainingTurns.Value--;
-        Debug.Log(targetTile);
-        if (targetTile.ObjectOnTile == null) {
-            this.defaultAction.Perform(targetTile, gameObject);
-            yield return new WaitForSeconds(this.defaultAction.Duration);
 
-        } else {
-            GameObject objectOnTile = targetTile.ObjectOnTile;
+        yield return interaction.Perform(tile, gameObject);
+
+        if (this.isGameOn.Value) {
+            if (this.remainingTurns.Value <= 0) {
+                this.turnHandler.NextTurn();
+            } else {
+                this.playerActionController.HighlightTiles();
+            }
         }
 
-        if (this.remainingTurns.Value <= 0) {
-            this.turnHandler.NextTurn();
-        } else {
-            this.playerActionController.HighlightTiles();
-        }
     }
 
 }

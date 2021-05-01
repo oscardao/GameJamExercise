@@ -14,7 +14,6 @@ public class Attack : ScriptableObject {
 
     public IEnumerator AttackTarget(GameObject target, float duration, GameObject attacker) {
         IAnimateable attackerAnimator = attacker.GetComponent<IAnimateable>();
-
         attackerAnimator.SetTrigger(this.onAttackTrigger);
 
         IDamageable targetDamageable = target.GetComponent<IDamageable>();

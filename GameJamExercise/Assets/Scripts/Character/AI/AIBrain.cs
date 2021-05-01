@@ -44,6 +44,7 @@ public class AIBrain : ScriptableObject {
                 continue;
             } else if (!tile.IsEmpty) {
                 Debug.Log("Switching");
+                yield return PerformAction(this.switchAction, tile, ai);
                 break;
 
             } else {

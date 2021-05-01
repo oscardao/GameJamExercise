@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 5062647623854659086}
   - component: {fileID: 7738133433609775681}
   - component: {fileID: 3126396779035055240}
+  - component: {fileID: 27696485061206703}
   m_Layer: 0
   m_Name: Enemy_Orc
   m_TagString: Untagged
@@ -205,3 +206,19 @@ MonoBehaviour:
   spriteRenderer: {fileID: 857393896340021478}
   animateableTransform: {fileID: 4805513424338652444}
   valueOnAwake: 0
+--- !u!114 &27696485061206703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419710753641762874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68eb06fdbd100ba468542595d8cd1d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactions:
+  - {fileID: 11400000, guid: 26e055fa0ddfacf4eb001259996ed623, type: 2}
+  - {fileID: 11400000, guid: c26db63a0c941e348b90c04cd85f230b, type: 2}
+  defaultInteraction: {fileID: 0}

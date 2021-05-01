@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 880c9cd1ce03d264c9ea2e3375237c0a, type: 3}
-  m_Name: HasArmor
+  m_Script: {fileID: 11500000, guid: 5bfe94b116e61584f8f424db9b9469dc, type: 3}
+  m_Name: PlayerMove
   m_EditorClassIdentifier: 
-  value: 1
-  onChange:
-    m_PersistentCalls:
-      m_Calls: []
+  sprite: {fileID: 0}
+  moveAction: {fileID: 11400000, guid: 2771268d48eacee48acf905737802cf4, type: 2}
