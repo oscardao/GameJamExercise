@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class PlayerDamageable : MonoBehaviour, IDamageable {
 
+    private IInventory playerInventory;
+
     [SerializeField]
-    private BoolReference HasArmor;
+    private Item armorItem;
     public bool IsArmored {
-        get { return this.HasArmor.Value; }
+        get { return this.playerInventory.HasItem(this.armorItem); }
     }
 
     [SerializeField]
@@ -17,18 +19,17 @@ public class PlayerDamageable : MonoBehaviour, IDamageable {
     [SerializeField]
     private BoolReference IsGameOn;
 
+    private void Awake() {
+        this.playerInventory = GetComponent<IInventory>();
+    }
 
     public void OnDamage() {
-        if (this.HasArmor.Value) {
-            this.HasArmor.Value = false;
+        if (this.IsArmored) {
+            this.playerInventory.RemoveItem(this.armorItem);
         } else {
             this.IsGameOn.Value = false;
             this.onPlayerDeath.Raise();
         }
-    }
-
-    public void AddArmor() {
-        this.HasArmor.Value = true;
     }
 
 }

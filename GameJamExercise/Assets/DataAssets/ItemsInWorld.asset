@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6a069346c5787d46a3321ff0b84d581, type: 3}
-  m_Name: EnemySwitchAttack
+  m_Script: {fileID: 11500000, guid: 69be0c7978ec3af458e97ed360ef885b, type: 3}
+  m_Name: ItemsInWorld
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  switchAction: {fileID: 11400000, guid: de95bf3e1333eec4999500f2692d571b, type: 2}
-  armorToCheck: {fileID: 11400000, guid: 25241f4425d08e24bb45a5b5dc62112c, type: 2}
+  items:
+  - {fileID: 11400000, guid: d3508390effdd6e49b87219618252702, type: 2}
+  - {fileID: 11400000, guid: 355f1d3d8b0cdbf4c8d785fcc2256eb6, type: 2}
+  allowDuplicates: 1

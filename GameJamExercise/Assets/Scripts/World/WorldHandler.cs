@@ -27,14 +27,18 @@ public class WorldHandler : MonoBehaviour {
     private GameObject playerPrefab;
     [SerializeField]
     private GameObject[] enemies;
+    [SerializeField]
+    private ItemHandler itemHandler;
 
     public void Generate() {
         this.world.Clear();
+        this.itemHandler.ClearItemsInWorld();
 
         int worldSize = this.level + this.numberOfTilesOffset;
         GenerateTiles(worldSize);
 
         AddObjects();
+        this.itemHandler.PlaceItems();
     }
 
     public void Clear() {

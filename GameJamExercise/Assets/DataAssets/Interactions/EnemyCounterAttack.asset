@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   attackAction: {fileID: 11400000, guid: d8320df6c79db2e4a8852cca505d38de, type: 2}
+  armorToCheck: {fileID: 11400000, guid: 25241f4425d08e24bb45a5b5dc62112c, type: 2}

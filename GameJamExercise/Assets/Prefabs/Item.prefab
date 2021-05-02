@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9062650803815372474}
   - component: {fileID: 4633560774267294696}
+  - component: {fileID: 1056818742874348627}
   m_Layer: 0
-  m_Name: Item_Sword
+  m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +45,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e180d253b1d1e9746beb964a851a13b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interaction: {fileID: 0}
+  itemsInWorld: {fileID: 11400000, guid: 68928304cb8b84f4788a6a0f085b2662, type: 2}
+  spriteRenderer: {fileID: 3222913998378113988}
+  interaction: {fileID: 11400000, guid: 0824892e9aae1684da8bc4bbf68911e6, type: 2}
+--- !u!114 &1056818742874348627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077774123959777848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec93f312e68f81a4f844f268dff8a606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7741762203878590670
 GameObject:
   m_ObjectHideFlags: 0

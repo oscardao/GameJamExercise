@@ -7,15 +7,17 @@ public class EnemySwitchAttack : BaseInteraction {
     [SerializeField]
     private BaseAction switchAction;
 
-    public override bool Evaluate(WorldTile tile, GameObject interacter) {
-        IDamageable damageable = interacter.GetComponent<IDamageable>();
+    [SerializeField]
+    private Item armorToCheck;
 
-        return damageable.IsArmored;
+    public override bool Evaluate(WorldTile tile, GameObject interacter) {
+        IInventory inventory = interacter.GetComponent<IInventory>();
+
+        return inventory.HasItem(this.armorToCheck);
     }
 
     public override IEnumerator Perform(WorldTile tile, GameObject interacter) {
         IAnimateable attackerAnimateable = tile.ObjectOnTile.GetComponent<IAnimateable>();
-
         IDamageable targetDamageable = interacter.GetComponent<IDamageable>();
 
         attackerAnimateable.SetTrigger("onPrepareAttack");

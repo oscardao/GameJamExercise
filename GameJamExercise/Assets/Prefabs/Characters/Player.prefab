@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4683512952322915372}
   - component: {fileID: 7980209849787680338}
   - component: {fileID: 3211622564280941193}
+  - component: {fileID: 6425436997325022488}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -65,7 +66,6 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: a78c2231296d90444803af607fce8801, type: 2}
-  defaultAction: {fileID: 11400000, guid: 2771268d48eacee48acf905737802cf4, type: 2}
 --- !u!114 &7659128630817552505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,10 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5783e79645d11d443aaf22820cb159a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HasArmor:
-    useConstant: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: af9fed4a6c86f8f408d145019782c862, type: 2}
+  armorItem: {fileID: 11400000, guid: 25241f4425d08e24bb45a5b5dc62112c, type: 2}
   onPlayerDeath: {fileID: 11400000, guid: 76f085baa54c7814296531be418f8a11, type: 2}
   IsGameOn:
     useConstant: 0
@@ -130,6 +127,19 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1519891282012993619}
   animateableTransform: {fileID: 3551121649557164118}
   valueOnAwake: 0
+--- !u!114 &6425436997325022488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906264221807599087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0330b8984867924fa2ad61ac7a9f062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &6528110739813517011
 GameObject:
   m_ObjectHideFlags: 0
