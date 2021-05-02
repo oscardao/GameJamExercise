@@ -23,7 +23,7 @@ public class TurnHandler : ScriptableObject {
     }
 
     private void PrepareRound() {
-        this.currentTurn = 0;
+        this.currentTurn = -1;
         this.round = new List<ICommandable>();
 
         List<int> sortedTeams = new List<int>(this.teams.Keys);
@@ -38,17 +38,27 @@ public class TurnHandler : ScriptableObject {
     public void StartRound() {
         this.IsGameOn.Value = true;
         PrepareRound();
+
+        for (int i = 0; i < this.round.Count; i++) {
+            this.round[i].IsActive = true;
+        }
+
         NextTurn();
     }
 
     public void NextTurn() {
         if (!this.IsGameOn.Value) return;
-
-        this.round[this.currentTurn].TakeTurn();
         this.currentTurn++;
 
         if (this.currentTurn >= this.round.Count) {
             PrepareRound();
+            this.currentTurn++;
+        }
+
+        if (this.round[this.currentTurn].IsActive) {
+            this.round[this.currentTurn].TakeTurn();
+        } else {
+            NextTurn();
         }
 
     }

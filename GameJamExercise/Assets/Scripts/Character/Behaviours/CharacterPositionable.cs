@@ -10,4 +10,10 @@ public class CharacterPositionable : MonoBehaviour, IPositionable {
         set { this.position = value; }
     }
 
+    private void OnDisable() {
+        if (this.WorldTile.ObjectOnTile == gameObject) {
+            this.WorldTile.ObjectOnTile = null;
+        }
+    }
+
 }

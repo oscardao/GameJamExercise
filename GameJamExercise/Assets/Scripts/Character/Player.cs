@@ -23,6 +23,12 @@ public class Player : MonoBehaviour, ICommandable {
     [SerializeField]
     private IntReference remainingTurns;
 
+    private bool isActive;
+    public bool IsActive {
+        get { return this.isActive; }
+        set { this.isActive = value; }
+    }
+
     private void Awake() {
         this.player.Value = gameObject;
         this.turnHandler.AddCommandable(this.team, this);

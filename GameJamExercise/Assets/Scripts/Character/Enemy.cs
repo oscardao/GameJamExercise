@@ -12,12 +12,20 @@ public class Enemy : MonoBehaviour, ICommandable, ITargeting {
     [SerializeField]
     private int team;
 
+    private bool isActive;
+    public bool IsActive {
+        get { return this.isActive; }
+        set { this.isActive = value; }
+    }
+
     [Header("Targeting")]
     [SerializeField]
     private GameObjectReference target;
     public GameObject Target {
         get { return this.target.Value; }
     }
+
+
 
     [Header("AI")]
     [SerializeField]

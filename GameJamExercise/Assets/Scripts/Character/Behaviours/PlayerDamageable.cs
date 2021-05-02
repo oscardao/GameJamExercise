@@ -14,6 +14,11 @@ public class PlayerDamageable : MonoBehaviour, IDamageable {
         get { return this.playerInventory.HasItem(this.armorItem); }
     }
 
+    private bool isDead;
+    public bool IsDead {
+        get { return this.isDead; }
+    }
+
     [SerializeField]
     private NoArgEvent onPlayerDeath;
     [SerializeField]
@@ -21,12 +26,14 @@ public class PlayerDamageable : MonoBehaviour, IDamageable {
 
     private void Awake() {
         this.playerInventory = GetComponent<IInventory>();
+        this.isDead = false;
     }
 
     public void OnDamage() {
         if (this.IsArmored) {
             this.playerInventory.RemoveItem(this.armorItem);
         } else {
+            this.isDead = true;
             this.IsGameOn.Value = false;
             this.onPlayerDeath.Raise();
         }

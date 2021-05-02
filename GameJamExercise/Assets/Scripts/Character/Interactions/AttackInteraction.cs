@@ -11,11 +11,13 @@ public class AttackInteraction : BaseInteraction {
 
     public override bool Evaluate(WorldTile tile, GameObject interacter) {
         IInventory inventory = interacter.GetComponent<IInventory>();
-
         return inventory.HasItem(this.swordToCheck);
     }
 
     public override IEnumerator Perform(WorldTile tile, GameObject interacter) {
+        IInventory inventory = interacter.GetComponent<IInventory>();
+        inventory.RemoveItem(this.swordToCheck);
+
         this.attackAction.Perform(tile, interacter);
         yield return new WaitForSeconds(this.attackAction.Duration);
     }
