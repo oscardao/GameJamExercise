@@ -39,7 +39,6 @@ public class AIBrain : ScriptableObject {
 
         while (pathToTarget.Count > 0) {
             WorldTile tile = pathToTarget.Pop();
-            Debug.Log("IsOnTile: " + positionable.WorldTile.Position + "Checking Tile: " + tile.ToString());
             if (tile == positionable.WorldTile) {
                 continue;
             } else if (!tile.IsEmpty) {

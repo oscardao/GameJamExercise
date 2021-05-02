@@ -41,6 +41,9 @@ TextureImporter:
   - first:
       213: 6573183838743003
     second: IsometricTRPGAssetPack_OutlinedEntities_12
+  - first:
+      213: 6383005180396959852
+    second: IsometricTRPGAssetPack_OutlinedEntities_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -434,6 +437,27 @@ TextureImporter:
       bones: []
       spriteID: bd960cf964a571000800000000000000
       internalID: 6573183838743003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IsometricTRPGAssetPack_OutlinedEntities_13
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 445
+        width: 10
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68f909946df49850800000000000000
+      internalID: 6383005180396959852
       vertices: []
       indices: 
       edges: []

@@ -113,9 +113,9 @@ GameObject:
   - component: {fileID: 5336649744597104222}
   - component: {fileID: 7317223157266035819}
   - component: {fileID: 5062647623854659086}
-  - component: {fileID: 7738133433609775681}
   - component: {fileID: 3126396779035055240}
   - component: {fileID: 27696485061206703}
+  - component: {fileID: 1850146865296017664}
   m_Layer: 0
   m_Name: Enemy_Orc
   m_TagString: Untagged
@@ -169,27 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec93f312e68f81a4f844f268dff8a606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7738133433609775681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419710753641762874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5783e79645d11d443aaf22820cb159a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HasArmor:
-    useConstant: 1
-    constantValue: 0
-    variable: {fileID: 0}
-  onPlayerDeath: {fileID: 0}
-  IsGameOn:
-    useConstant: 1
-    constantValue: 0
-    variable: {fileID: 0}
 --- !u!114 &3126396779035055240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +198,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactions:
+  - {fileID: 11400000, guid: 9191a451defa89045adfc6a4c79871c7, type: 2}
   - {fileID: 11400000, guid: 26e055fa0ddfacf4eb001259996ed623, type: 2}
   - {fileID: 11400000, guid: c26db63a0c941e348b90c04cd85f230b, type: 2}
   defaultInteraction: {fileID: 0}
+--- !u!114 &1850146865296017664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419710753641762874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c1c6c43b1514f64e92bb9a61bf37c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -17,9 +17,6 @@ public class PathFinding : ScriptableObject {
         queue.Push(new Node(startTile));
 
         int iterations = 0;
-
-        Debug.Log("Target: " + endTile.Position + "   Start: " + startTile.Position);
-
         while (queue.Count > 0) {
             iterations++;
 
@@ -51,7 +48,7 @@ public class PathFinding : ScriptableObject {
 
         visitedTiles.Add(evaluatedNode.Tile, evaluatedNode.Link);
         if (evaluatedNode.Tile == target) {
-            Debug.Log("End Found: EvaluatedNode=" + evaluatedNode.Tile.Position + "  EndNode=" + target.Position);
+
             return true;
         }
 
