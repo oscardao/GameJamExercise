@@ -15,8 +15,14 @@ public class Attack : ScriptableObject {
     public IEnumerator AttackTarget(GameObject target, float duration, GameObject attacker) {
         IAnimateable attackerAnimator = attacker.GetComponent<IAnimateable>();
         attackerAnimator.SetTrigger(this.onAttackTrigger);
+
         IDamageable targetDamageable = target.GetComponent<IDamageable>();
         targetDamageable.OnDamage();
+
+        if (targetDamageable.IsDead) {
+            IPositionable targetPositionable = target.GetComponent<IPositionable>();
+            targetPositionable.WorldTile.ObjectOnTile = null;
+        }
 
         yield return new WaitForSeconds(duration);
 
