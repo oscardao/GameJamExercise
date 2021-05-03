@@ -25,8 +25,6 @@ public class Enemy : MonoBehaviour, ICommandable, ITargeting {
         get { return this.target.Value; }
     }
 
-
-
     [Header("AI")]
     [SerializeField]
     private AIBrain brain;

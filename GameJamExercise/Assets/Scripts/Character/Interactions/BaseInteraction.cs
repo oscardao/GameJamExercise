@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class BaseInteraction : ScriptableObject {
 
     [SerializeField]
-    private Sprite sprite;
-    public Sprite Sprite {
-        get { return this.sprite; }
+    private string description;
+    public string Description {
+        get { return this.description; }
     }
 
     public abstract bool Evaluate(WorldTile tile, GameObject interacter);

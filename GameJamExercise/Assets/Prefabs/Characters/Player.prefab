@@ -139,7 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0330b8984867924fa2ad61ac7a9f062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 9f4295e42851d234aa30371399466b31, type: 2}
+  clock: {fileID: 11400000, guid: 355f1d3d8b0cdbf4c8d785fcc2256eb6, type: 2}
+  extraTurns: {fileID: 11400000, guid: c52abb58e9040b6438d6473bd636c79b, type: 2}
 --- !u!1 &6528110739813517011
 GameObject:
   m_ObjectHideFlags: 0

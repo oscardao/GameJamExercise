@@ -14,6 +14,12 @@ public class ItemBehaviour : MonoBehaviour, IInteractable, IPickupable {
     [SerializeField]
     private BaseInteraction interaction;
 
+    [SerializeField]
+    private Transform symbolLocation;
+    public Transform SymbolLocation {
+        get { return this.symbolLocation; }
+    }
+
     public void Setup(Item item) {
         itemsInWorld.Add(item);
         this.itemData = item;

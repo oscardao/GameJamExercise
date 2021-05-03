@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98c352738688754aa2d4b636493b868, type: 3}
   m_Name: PickUpItem
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  description: Pickup item
   moveAction: {fileID: 11400000, guid: 2771268d48eacee48acf905737802cf4, type: 2}

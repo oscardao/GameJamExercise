@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f04d10050082dd44b0299c0b59d2f95, type: 3}
   m_Name: PlayerAttack
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  description: Attack Enemy
   attackAction: {fileID: 11400000, guid: d8320df6c79db2e4a8852cca505d38de, type: 2}
   swordToCheck: {fileID: 11400000, guid: d3508390effdd6e49b87219618252702, type: 2}

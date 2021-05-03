@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3c1e8e2596f0b4ba53688d9a555262, type: 3}
   m_Name: EnemyCounterAttack
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  description: Get whacked by the enemy
   attackAction: {fileID: 11400000, guid: d8320df6c79db2e4a8852cca505d38de, type: 2}
   armorToCheck: {fileID: 11400000, guid: 25241f4425d08e24bb45a5b5dc62112c, type: 2}

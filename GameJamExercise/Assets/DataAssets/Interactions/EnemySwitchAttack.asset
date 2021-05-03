@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a069346c5787d46a3321ff0b84d581, type: 3}
   m_Name: EnemySwitchAttack
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  description: Switch position with enemy, but breaks your armor
   switchAction: {fileID: 11400000, guid: de95bf3e1333eec4999500f2692d571b, type: 2}
   armorToCheck: {fileID: 11400000, guid: 25241f4425d08e24bb45a5b5dc62112c, type: 2}

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfe94b116e61584f8f424db9b9469dc, type: 3}
   m_Name: PlayerMove
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  description: Move to tile
   moveAction: {fileID: 11400000, guid: 2771268d48eacee48acf905737802cf4, type: 2}
