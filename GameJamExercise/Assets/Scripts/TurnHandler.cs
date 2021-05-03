@@ -22,6 +22,13 @@ public class TurnHandler : ScriptableObject {
         this.teams[team].Add(commandable);
     }
 
+    public void RemoveCommandable(int team, ICommandable commandable) {
+        if (this.teams.ContainsKey(team)) {
+            this.teams[team].Remove(commandable);
+        }
+
+    }
+
     private void PrepareRound() {
         this.currentTurn = -1;
         this.round = new List<ICommandable>();

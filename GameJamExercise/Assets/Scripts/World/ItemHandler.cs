@@ -23,8 +23,19 @@ public class ItemHandler : MonoBehaviour {
     [SerializeField]
     private Item sword;
 
+    private ICommandable commandable;
+
+    private void Awake() {
+        this.commandable = GetComponent<ICommandable>();
+    }
+
     public void ClearItemsInWorld() {
         this.itemsInWorld.Clear();
+    }
+
+    public void TakeTurn() {
+        PlaceItems();
+        this.commandable.TurnHandler.NextTurn();
     }
 
     public void PlaceItems() {

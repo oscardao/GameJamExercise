@@ -33,25 +33,37 @@ public class AIBrain : ScriptableObject {
             }
         }
 
-        Stack<WorldTile> pathToTarget = new Stack<WorldTile>();
-        IPositionable targetPositionable = targeting.Target.GetComponent<IPositionable>();
-        yield return this.pathFinding.FindPath(targetPositionable.WorldTile, positionable.WorldTile, pathToTarget);
+        List<WorldTile> moveTiles = this.world.GetNeighbourTiles(positionable.WorldTile.Position);
 
-        while (pathToTarget.Count > 0) {
-            WorldTile tile = pathToTarget.Pop();
-            if (tile == positionable.WorldTile) {
-                continue;
-            } else if (!tile.IsEmpty) {
-                Debug.Log("Switching");
-                yield return PerformAction(this.switchAction, tile, ai);
-                break;
+        WorldTile tile = moveTiles[Random.Range(0, moveTiles.Count)];
+        if (!tile.IsEmpty) {
+            Debug.Log("Switching");
+            yield return PerformAction(this.switchAction, tile, ai);
 
-            } else {
-                Debug.Log("moving");
-                yield return PerformAction(this.moveAction, tile, ai);
-                break;
-            }
+        } else {
+            Debug.Log("moving");
+            yield return PerformAction(this.moveAction, tile, ai);
         }
+
+        //Stack<WorldTile> pathToTarget = new Stack<WorldTile>();
+        //IPositionable targetPositionable = targeting.Target.GetComponent<IPositionable>();
+        //yield return this.pathFinding.FindPath(targetPositionable.WorldTile, positionable.WorldTile, pathToTarget);
+
+        //while (pathToTarget.Count > 0) {
+        //    WorldTile tile = pathToTarget.Pop();
+        //    if (tile == positionable.WorldTile) {
+        //        continue;
+        //    } else if (!tile.IsEmpty) {
+        //        Debug.Log("Switching");
+        //        yield return PerformAction(this.switchAction, tile, ai);
+        //        break;
+
+        //    } else {
+        //        Debug.Log("moving");
+        //        yield return PerformAction(this.moveAction, tile, ai);
+        //        break;
+        //    }
+        //}
     }
 
     private IEnumerator PerformAction(BaseAction action, WorldTile tile, GameObject gameObject) {

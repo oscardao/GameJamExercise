@@ -18,12 +18,13 @@ public class Game : MonoBehaviour {
     }
 
     public void StartGame() {
+        this.level.Value = 1;
         this.world.Generate();
         this.turnHandler.StartRound();
     }
 
     public void NextLevel() {
-
+        this.level.Value++;
     }
 
     public void EndGame() {

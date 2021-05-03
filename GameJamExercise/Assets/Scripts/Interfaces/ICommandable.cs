@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 public interface ICommandable {
 
+    public abstract TurnHandler TurnHandler {
+        get;
+    }
+
     public abstract bool IsActive {
         get;
         set;

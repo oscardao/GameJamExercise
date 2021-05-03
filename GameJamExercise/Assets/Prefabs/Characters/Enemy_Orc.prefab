@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 3126396779035055240}
   - component: {fileID: 27696485061206703}
   - component: {fileID: 1850146865296017664}
+  - component: {fileID: 3378934173787338585}
   m_Layer: 0
   m_Name: Enemy_Orc
   m_TagString: Untagged
@@ -151,8 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2409e0e8dd31a5d47a24f585d3280cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnHandler: {fileID: 11400000, guid: 02a5a1ac8d2f3884c9791a549a49d4e7, type: 2}
-  team: 1
   target:
     useConstant: 0
     constantValue: {fileID: 0}
@@ -217,6 +216,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsArmored: 0
+--- !u!114 &3378934173787338585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419710753641762874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85bd662f7a8900f45962a626a8acb33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTakeTurn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7317223157266035819}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: TakeTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  turnHandler: {fileID: 11400000, guid: 02a5a1ac8d2f3884c9791a549a49d4e7, type: 2}
+  team: 2
 --- !u!1 &3460887708222485782
 GameObject:
   m_ObjectHideFlags: 0

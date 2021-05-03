@@ -4,19 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Enemy : MonoBehaviour, ICommandable, ITargeting {
+public class Enemy : MonoBehaviour, ITargeting {
 
-    [Header("Turn Handling")]
-    [SerializeField]
-    private TurnHandler turnHandler;
-    [SerializeField]
-    private int team;
-
-    private bool isActive;
-    public bool IsActive {
-        get { return this.isActive; }
-        set { this.isActive = value; }
-    }
+    private ICommandable commandable;
 
     [Header("Targeting")]
     [SerializeField]
@@ -30,7 +20,7 @@ public class Enemy : MonoBehaviour, ICommandable, ITargeting {
     private AIBrain brain;
 
     private void Awake() {
-        this.turnHandler.AddCommandable(this.team, this);
+        this.commandable = GetComponent<ICommandable>();
     }
 
     public void TakeTurn() {
@@ -39,7 +29,7 @@ public class Enemy : MonoBehaviour, ICommandable, ITargeting {
 
     private IEnumerator PerformAction() {
         yield return this.brain.OnTakeTurn(gameObject);
-        this.turnHandler.NextTurn();
+        this.commandable.TurnHandler.NextTurn();
     }
 
 }

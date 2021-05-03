@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7980209849787680338}
   - component: {fileID: 3211622564280941193}
   - component: {fileID: 6425436997325022488}
+  - component: {fileID: 1182397632630499274}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -56,8 +57,6 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: f00e3a8723fccce4bbaf7146a83cd425, type: 2}
-  turnHandler: {fileID: 11400000, guid: 02a5a1ac8d2f3884c9791a549a49d4e7, type: 2}
-  team: 0
   baseTurns:
     useConstant: 1
     constantValue: 2
@@ -66,6 +65,10 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: a78c2231296d90444803af607fce8801, type: 2}
+  clocks:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: c52abb58e9040b6438d6473bd636c79b, type: 2}
 --- !u!114 &7659128630817552505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +145,35 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 9f4295e42851d234aa30371399466b31, type: 2}
   clock: {fileID: 11400000, guid: 355f1d3d8b0cdbf4c8d785fcc2256eb6, type: 2}
   extraTurns: {fileID: 11400000, guid: c52abb58e9040b6438d6473bd636c79b, type: 2}
+--- !u!114 &1182397632630499274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906264221807599087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85bd662f7a8900f45962a626a8acb33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTakeTurn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2453195959212052230}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: TakeTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  turnHandler: {fileID: 11400000, guid: 02a5a1ac8d2f3884c9791a549a49d4e7, type: 2}
+  team: 1
 --- !u!1 &6528110739813517011
 GameObject:
   m_ObjectHideFlags: 0
