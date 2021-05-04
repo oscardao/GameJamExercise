@@ -17,7 +17,7 @@ public class Game : MonoBehaviour {
     private float startGameDelay;
 
     public void StartGame() {
-        this.level.Value = 1;
+        this.level.Value = 10;
         StartCoroutine(StartGameCO());
     }
 

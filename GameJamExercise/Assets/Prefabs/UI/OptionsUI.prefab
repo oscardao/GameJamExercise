@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Paused
+  m_text: Options
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 777f487da77a75f4786cca863d915b43, type: 2}
   m_sharedMaterial: {fileID: 2868971844497482305, guid: 777f487da77a75f4786cca863d915b43, type: 2}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 8480762401979735535}
   - component: {fileID: 1162358815550337733}
   m_Layer: 5
-  m_Name: GamePausedUI
+  m_Name: OptionsUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
