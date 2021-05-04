@@ -13,14 +13,12 @@ public class Game : MonoBehaviour {
     [SerializeField]
     private WorldHandler world;
 
-    private void Start() {
-        StartGame();
-    }
+    [SerializeField]
+    private float startGameDelay;
 
     public void StartGame() {
         this.level.Value = 1;
-        this.world.Generate();
-        this.turnHandler.StartRound();
+        StartCoroutine(StartGameCO());
     }
 
     public void NextLevel() {
@@ -29,6 +27,12 @@ public class Game : MonoBehaviour {
 
     public void EndGame() {
 
+    }
+
+    private IEnumerator StartGameCO() {
+        yield return new WaitForSeconds(this.startGameDelay);
+        this.world.Generate();
+        this.turnHandler.StartRound();
     }
 
 

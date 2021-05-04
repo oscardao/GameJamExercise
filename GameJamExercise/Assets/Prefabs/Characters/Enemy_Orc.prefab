@@ -157,6 +157,7 @@ MonoBehaviour:
     constantValue: {fileID: 0}
     variable: {fileID: 11400000, guid: 4d1fd4e3acdcdcc408b4b18b65a0711a, type: 2}
   brain: {fileID: 11400000, guid: d709d1d24c46b5b46a47854fb0dfac9d, type: 2}
+  enemiesInWorld: {fileID: 11400000, guid: d8db281706b60cb40a717a502084f73c, type: 2}
 --- !u!114 &5062647623854659086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsArmored: 0
+  onDeath: {fileID: 11400000, guid: c9e60e8d2b1a6a24598c76bb98bd59c6, type: 2}
 --- !u!114 &3378934173787338585
 MonoBehaviour:
   m_ObjectHideFlags: 0

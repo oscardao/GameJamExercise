@@ -41,6 +41,15 @@ TextureImporter:
   - first:
       213: -3490020504247514925
     second: IsometricTRPGAssetPack_UI_12
+  - first:
+      213: 849637607949373477
+    second: IsometricTRPGAssetPack_UI_13
+  - first:
+      213: 8633185433491352693
+    second: IsometricTRPGAssetPack_UI_14
+  - first:
+      213: 5990548410915093538
+    second: IsometricTRPGAssetPack_UI_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -402,7 +411,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
@@ -410,6 +419,69 @@ TextureImporter:
       bones: []
       spriteID: 3d84f71a7d4f09fc0800000000000000
       internalID: -3490020504247514925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IsometricTRPGAssetPack_UI_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52092a127e48acb00800000000000000
+      internalID: 849637607949373477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IsometricTRPGAssetPack_UI_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 2, z: 2, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c2453496c3fc770800000000000000
+      internalID: 8633185433491352693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IsometricTRPGAssetPack_UI_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22cff5a5a04b22350800000000000000
+      internalID: 5990548410915093538
       vertices: []
       indices: 
       edges: []

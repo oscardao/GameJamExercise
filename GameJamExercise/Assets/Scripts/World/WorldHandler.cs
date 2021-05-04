@@ -22,30 +22,23 @@ public class WorldHandler : MonoBehaviour {
 
     [Header("World Objects")]
     [SerializeField]
-    private GameObject playerPrefab;
-    [SerializeField]
-    private GameObject[] enemies;
-    [SerializeField]
     private ItemHandler itemHandler;
     [SerializeField]
-    private IntReference numberOfObjects;
+    private CharacterSpawner characterSpawner;
 
-    private List<WorldTile> possibleTiles;
-    private List<WorldTile> possiblePlayerTiles;
+    private List<WorldTile> enemyTiles;
+    private List<WorldTile> playerTiles;
 
     public void Generate() {
         this.world.Clear();
         this.itemHandler.ClearItemsInWorld();
 
-        this.possiblePlayerTiles = new List<WorldTile>();
-        this.possibleTiles = new List<WorldTile>();
+        this.playerTiles = new List<WorldTile>();
+        this.enemyTiles = new List<WorldTile>();
 
-        int worldSize = this.level.Value + this.numberOfPatchesOffset;
-        this.numberOfObjects.Value = worldSize;
+        GenerateTiles(this.level.Value + this.numberOfPatchesOffset);
 
-        GenerateTiles(worldSize);
-
-        AddCharacters();
+        this.characterSpawner.PlaceCharacters(this.playerTiles, this.enemyTiles);
         this.itemHandler.PlaceItems();
     }
 
@@ -58,10 +51,10 @@ public class WorldHandler : MonoBehaviour {
         List<Vector2Int> usedPatchSpots = new List<Vector2Int>();
 
         freePatchSpots.Add(Vector2Int.zero);
-        AddPatch(freePatchSpots, usedPatchSpots, this.possiblePlayerTiles);
+        AddPatch(freePatchSpots, usedPatchSpots, this.playerTiles);
 
         for (int i = 0; i < worldSize - 1; i++) {
-            AddPatch(freePatchSpots, usedPatchSpots, this.possibleTiles);
+            AddPatch(freePatchSpots, usedPatchSpots, this.enemyTiles);
         }
 
     }
@@ -94,19 +87,6 @@ public class WorldHandler : MonoBehaviour {
                     freePatches.Add(potentialFreeSpot);
                 }
             }
-        }
-    }
-
-    private void AddCharacters() {
-        WorldTile playerTile = this.possiblePlayerTiles[Random.Range(0, this.possiblePlayerTiles.Count)];
-        GameObject player = Instantiate(this.playerPrefab, playerTile.WorldPosition, Quaternion.identity);
-        playerTile.ObjectOnTile = player;
-
-        for (int i = 0; i < this.numberOfObjects.Value; i++) {
-            WorldTile enemyTile = this.possibleTiles[Random.Range(0, this.possibleTiles.Count)];
-            this.possibleTiles.Remove(enemyTile);
-            GameObject enemy = Instantiate(this.enemies[Random.Range(0, this.enemies.Length)], enemyTile.WorldPosition, Quaternion.identity);
-            enemyTile.ObjectOnTile = enemy;
         }
     }
 
