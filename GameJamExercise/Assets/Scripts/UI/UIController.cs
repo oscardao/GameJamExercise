@@ -14,8 +14,12 @@ public class UIController : MonoBehaviour {
 
     private IEnumerator StartCO() {
         yield return new WaitForSeconds(this.delayBeforeStart);
-        GameObject startPage = Instantiate(this.startPagePrefab, transform);
-        UIPage uiPage = startPage.GetComponent<UIPage>();
+        OpenPage(this.startPagePrefab);
+    }
+
+    public void OpenPage(GameObject page) {
+        GameObject newPage = Instantiate(page, transform);
+        UIPage uiPage = newPage.GetComponent<UIPage>();
         uiPage.Expose();
     }
 

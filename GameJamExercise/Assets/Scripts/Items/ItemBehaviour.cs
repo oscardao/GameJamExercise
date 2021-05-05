@@ -20,6 +20,10 @@ public class ItemBehaviour : MonoBehaviour, IInteractable, IPickupable {
         get { return this.symbolLocation; }
     }
 
+    public string promptDescription {
+        get { return this.itemData.ItemName; }
+    }
+
     public void Setup(Item item) {
         itemsInWorld.Add(item);
         this.itemData = item;

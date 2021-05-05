@@ -14,6 +14,10 @@ public class EnemyHandler : MonoBehaviour {
     [SerializeField]
     private BoolReference isGameOn;
 
+    public void Clear() {
+        this.enemiesInWorld.Clear();
+    }
+
     public void OnEnemyDeath(GameObject enemy) {
         this.enemiesInWorld.Remove(enemy);
 

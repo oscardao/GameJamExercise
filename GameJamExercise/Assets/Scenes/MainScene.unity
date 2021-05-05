@@ -342,7 +342,10 @@ MonoBehaviour:
     variable: {fileID: 11400000, guid: 51c73d8725c81424385d2174fb9395d7, type: 2}
   turnHandler: {fileID: 11400000, guid: 02a5a1ac8d2f3884c9791a549a49d4e7, type: 2}
   world: {fileID: 863979778}
+  onGameStarted: {fileID: 11400000, guid: 84047d431b83d114c940af552b07a292, type: 2}
   startGameDelay: 0.8
+  nextLevelDelay: 1.75
+  endGameDelay: 1.75
 --- !u!4 &474911364
 Transform:
   m_ObjectHideFlags: 0
@@ -475,17 +478,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 19117998}
-  tilePrefab: {fileID: 6632879156637247636, guid: 438a8776e3cc89447b42824d17f7145e, type: 3}
-  patchSize: 3
-  numberOfPatchesOffset: 1
   level:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 51c73d8725c81424385d2174fb9395d7, type: 2}
   world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
+  patchSize: 3
+  numberOfPatchesOffset: 1
+  tilePrefab: {fileID: 6632879156637247636, guid: 438a8776e3cc89447b42824d17f7145e, type: 3}
+  breakEveryIteration: 50
   itemHandler: {fileID: 1748933762}
   characterSpawner: {fileID: 1118087788}
   tileSpawn: {x: 0, y: -4, z: 0}
+  flyDuration: 0.5
+  timeBetweeenFlys: 0.02
 --- !u!4 &863979779
 Transform:
   m_ObjectHideFlags: 0
@@ -511,6 +517,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1090484986}
   - component: {fileID: 1090484987}
+  - component: {fileID: 1090484988}
+  - component: {fileID: 1090484989}
   m_Layer: 0
   m_Name: Events
   m_TagString: Untagged
@@ -551,6 +559,62 @@ MonoBehaviour:
       - m_Target: {fileID: 474911363}
         m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1090484988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090484985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f86c5999e9b34d42bd96fcc84a48bee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1b7a7c1bc967ab84e9811894f3c9d6a0, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 474911363}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: NextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1090484989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090484985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f86c5999e9b34d42bd96fcc84a48bee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 76f085baa54c7814296531be418f8a11, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 474911363}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: EndGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -662,6 +726,70 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: f00e3a8723fccce4bbaf7146a83cd425, type: 2}
+--- !u!1 &1600579508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1600579509}
+  - component: {fileID: 1600579510}
+  m_Layer: 5
+  m_Name: Events
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1600579509
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600579508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1801875097}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1600579510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600579508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f86c5999e9b34d42bd96fcc84a48bee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 84047d431b83d114c940af552b07a292, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1801875098}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: OpenPage
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 9045218081358409364, guid: 583bac841a917c042b4152d238d4af6b, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1601017959
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,7 +1010,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 1600579509}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

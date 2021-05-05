@@ -5,8 +5,8 @@ using UnityEngine;
 public abstract class BaseInteraction : ScriptableObject {
 
     [SerializeField]
-    private string description;
-    public string Description {
+    protected string description;
+    public virtual string Description {
         get { return this.description; }
     }
 
