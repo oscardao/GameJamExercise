@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using OsukaCreative.Utility.GameEvent;
+using System.Collections;
 using UnityEngine;
 
 
@@ -24,6 +25,10 @@ public class ItemBehaviour : MonoBehaviour, IInteractable, IPickupable {
         get { return this.itemData.ItemName; }
     }
 
+    [Header("Stats")]
+    [SerializeField]
+    private NoArgEvent onItemPickedUp;
+
     public void Setup(Item item) {
         itemsInWorld.Add(item);
         this.itemData = item;
@@ -35,6 +40,7 @@ public class ItemBehaviour : MonoBehaviour, IInteractable, IPickupable {
     }
 
     public void OnPickup(GameObject interacter) {
+        this.onItemPickedUp.Raise();
         IInventory inventory = interacter.GetComponent<IInventory>();
         inventory.AddItem(this.itemData);
         this.itemsInWorld.Remove(this.itemData);

@@ -20,7 +20,6 @@ public class EnemyHandler : MonoBehaviour {
 
     public void OnEnemyDeath(GameObject enemy) {
         this.enemiesInWorld.Remove(enemy);
-
         if (this.enemiesInWorld.Length <= 0) {
             this.isGameOn.Value = false;
             this.onLevelComplete.Raise();

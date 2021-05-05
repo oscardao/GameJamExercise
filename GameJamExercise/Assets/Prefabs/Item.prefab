@@ -164,6 +164,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3222913998378113988}
   interaction: {fileID: 11400000, guid: 0824892e9aae1684da8bc4bbf68911e6, type: 2}
   symbolLocation: {fileID: 1133038599396045890}
+  onItemPickedUp: {fileID: 11400000, guid: 90d0465caa87ca840be81f170c64ba14, type: 2}
 --- !u!114 &1056818742874348627
 MonoBehaviour:
   m_ObjectHideFlags: 0

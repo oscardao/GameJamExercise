@@ -12,6 +12,8 @@ public class TextUIListener : MonoBehaviour {
     private TextMeshProUGUI text;
     [SerializeField]
     private string preText;
+    [SerializeField]
+    private string postText;
 
     private void Start() {
         UpdateDisplay();
@@ -26,7 +28,7 @@ public class TextUIListener : MonoBehaviour {
     }
 
     public void UpdateDisplay() {
-        this.text.text = this.preText + this.variable.Value;
+        this.text.text = this.preText + this.variable.Value + this.postText;
     }
 
 }

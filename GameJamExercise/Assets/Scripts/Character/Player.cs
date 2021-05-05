@@ -1,4 +1,5 @@
-﻿using OsukaCreative.Utility.Variables;
+﻿using OsukaCreative.Utility.GameEvent;
+using OsukaCreative.Utility.Variables;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,8 @@ public class Player : MonoBehaviour {
     private IntReference remainingTurns;
     private bool hasTurn;
     private ICommandable commandable;
+    [SerializeField]
+    private NoArgEvent onPlayerTakeAction;
 
     [Header("Inventory")]
     [SerializeField]
@@ -38,6 +41,7 @@ public class Player : MonoBehaviour {
 
     public void PerformAction(BaseInteraction interaction, WorldTile tile) {
         this.hasTurn = false;
+        this.onPlayerTakeAction.Raise();
         StartCoroutine(PerformActionCO(interaction, tile));
     }
 

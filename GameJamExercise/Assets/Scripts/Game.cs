@@ -14,8 +14,11 @@ public class Game : MonoBehaviour {
     [SerializeField]
     private WorldHandler world;
 
+    [Header("Events")]
     [SerializeField]
     private NoArgEvent onGameStarted;
+    [SerializeField]
+    private NoArgEvent onGameEnded;
 
     [Header("Timers")]
     [SerializeField]
@@ -40,7 +43,7 @@ public class Game : MonoBehaviour {
 
     private IEnumerator EndGameCO() {
         yield return new WaitForSeconds(this.endGameDelay);
-        yield return this.world.ClearWorld();
+        this.onGameEnded.Raise();
     }
 
     private IEnumerator NextLevelCO() {

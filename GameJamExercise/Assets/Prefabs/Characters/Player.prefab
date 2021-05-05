@@ -65,6 +65,7 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: a78c2231296d90444803af607fce8801, type: 2}
+  onPlayerTakeAction: {fileID: 11400000, guid: 4c42ccd1461766348af647cb284857c5, type: 2}
   clocks:
     useConstant: 0
     constantValue: 0
