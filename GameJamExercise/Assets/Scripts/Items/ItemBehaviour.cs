@@ -15,12 +15,6 @@ public class ItemBehaviour : MonoBehaviour, IInteractable, IPickupable {
     [SerializeField]
     private BaseInteraction interaction;
 
-    [SerializeField]
-    private Transform symbolLocation;
-    public Transform SymbolLocation {
-        get { return this.symbolLocation; }
-    }
-
     public string promptDescription {
         get { return this.itemData.ItemName; }
     }

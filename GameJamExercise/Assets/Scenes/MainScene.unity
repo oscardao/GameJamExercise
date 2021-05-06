@@ -897,10 +897,12 @@ MonoBehaviour:
     constantValue: 0
     variable: {fileID: 11400000, guid: 51c73d8725c81424385d2174fb9395d7, type: 2}
   numberOfEnemiesOffset: 3
+  playerVariable: {fileID: 11400000, guid: 4d1fd4e3acdcdcc408b4b18b65a0711a, type: 2}
   playerPrefab: {fileID: 4906264221807599087, guid: 40524fb262f11754bab5b5e39b6fb7f7, type: 3}
   enemiesInWorld: {fileID: 11400000, guid: d8db281706b60cb40a717a502084f73c, type: 2}
   enemies:
   - {fileID: 1419710753641762874, guid: 33ca937655ba194418c9d136d2c2d653, type: 3}
+  - {fileID: 3431520136475041380, guid: aaa061076452b824c9aaa4797c193191, type: 3}
 --- !u!4 &1118087789
 Transform:
   m_ObjectHideFlags: 0

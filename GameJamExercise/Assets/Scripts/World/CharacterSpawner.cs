@@ -15,6 +15,8 @@ public class CharacterSpawner : MonoBehaviour {
 
     [Header("Player")]
     [SerializeField]
+    private GameObjectVariable playerVariable;
+    [SerializeField]
     private GameObject playerPrefab;
 
     [Header("Enemies")]
@@ -29,6 +31,7 @@ public class CharacterSpawner : MonoBehaviour {
         WorldTile playerTile = playerTiles[Random.Range(0, playerTiles.Count)];
         GameObject player = Instantiate(this.playerPrefab, playerTile.WorldPosition, Quaternion.identity);
         playerTile.ObjectOnTile = player;
+        this.playerVariable.Value = player;
 
         for (int i = 0; i < this.Level.Value + this.numberOfEnemiesOffset; i++) {
             WorldTile enemyTile = enemyTiles[Random.Range(0, enemyTiles.Count)];

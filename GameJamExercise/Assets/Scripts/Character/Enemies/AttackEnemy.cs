@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Enemy : MonoBehaviour, ITargeting {
+public class AttackEnemy : MonoBehaviour, ITargeting {
 
     private ICommandable commandable;
 
@@ -19,8 +19,6 @@ public class Enemy : MonoBehaviour, ITargeting {
     [Header("AI")]
     [SerializeField]
     private AIBrain brain;
-    [SerializeField]
-    private GameObjectSet enemiesInWorld;
 
     private void Awake() {
         this.commandable = GetComponent<ICommandable>();

@@ -21,16 +21,16 @@ public class World : ScriptableObject {
         get { return this.tiles.Count; }
     }
 
-    public List<WorldTile> GetNeighbourTiles(WorldTile tile) {
-        return GetNeighbourTiles(tile.Position);
+    public List<WorldTile> GetNeighbourTiles(WorldTile tile, bool ignoreDiagonals = true) {
+        return GetNeighbourTiles(tile.Position, ignoreDiagonals);
     }
 
-    public List<WorldTile> GetNeighbourTiles(Vector2Int position) {
+    public List<WorldTile> GetNeighbourTiles(Vector2Int position, bool ignoreDiagonals = true) {
         List<WorldTile> tiles = new List<WorldTile>();
 
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
-                if (Mathf.Abs(x) == Mathf.Abs(y)) continue;
+                if (ignoreDiagonals && Mathf.Abs(x) == Mathf.Abs(y)) continue;
                 Vector2Int spot = position + new Vector2Int(x, y);
 
                 if (this.tiles.ContainsKey(spot)) {

@@ -17,5 +17,7 @@ public interface IAnimateable {
 
     public abstract void SetTrigger(String trigger);
 
+    public abstract void SetBool(string name, bool value);
+
 }
 

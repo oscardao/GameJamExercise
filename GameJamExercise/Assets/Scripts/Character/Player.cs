@@ -7,9 +7,6 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     [SerializeField]
-    private GameObjectVariable player;
-
-    [SerializeField]
     private PlayerActionController playerActionController;
     [SerializeField]
     private BoolReference isGameOn;
@@ -29,7 +26,6 @@ public class Player : MonoBehaviour {
     private IntReference clocks;
 
     private void Awake() {
-        this.player.Value = gameObject;
         this.commandable = GetComponent<ICommandable>();
     }
 

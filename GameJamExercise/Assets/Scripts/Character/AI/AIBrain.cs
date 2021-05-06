@@ -16,10 +16,6 @@ public class AIBrain : ScriptableObject {
     [SerializeField]
     private BaseAction attackAction;
 
-    [Header("Path Finding")]
-    [SerializeField]
-    private PathFinding pathFinding;
-
     public IEnumerator OnTakeTurn(GameObject ai) {
         IPositionable positionable = ai.GetComponent<IPositionable>();
         ITargeting targeting = ai.GetComponent<ITargeting>();
@@ -33,37 +29,13 @@ public class AIBrain : ScriptableObject {
             }
         }
 
-        List<WorldTile> moveTiles = this.world.GetNeighbourTiles(positionable.WorldTile.Position);
-
-        WorldTile tile = moveTiles[Random.Range(0, moveTiles.Count)];
+        WorldTile tile = tiles[Random.Range(0, tiles.Count)];
         if (!tile.IsEmpty) {
-            Debug.Log("Switching");
             yield return PerformAction(this.switchAction, tile, ai);
 
         } else {
-            Debug.Log("moving");
             yield return PerformAction(this.moveAction, tile, ai);
         }
-
-        //Stack<WorldTile> pathToTarget = new Stack<WorldTile>();
-        //IPositionable targetPositionable = targeting.Target.GetComponent<IPositionable>();
-        //yield return this.pathFinding.FindPath(targetPositionable.WorldTile, positionable.WorldTile, pathToTarget);
-
-        //while (pathToTarget.Count > 0) {
-        //    WorldTile tile = pathToTarget.Pop();
-        //    if (tile == positionable.WorldTile) {
-        //        continue;
-        //    } else if (!tile.IsEmpty) {
-        //        Debug.Log("Switching");
-        //        yield return PerformAction(this.switchAction, tile, ai);
-        //        break;
-
-        //    } else {
-        //        Debug.Log("moving");
-        //        yield return PerformAction(this.moveAction, tile, ai);
-        //        break;
-        //    }
-        //}
     }
 
     private IEnumerator PerformAction(BaseAction action, WorldTile tile, GameObject gameObject) {

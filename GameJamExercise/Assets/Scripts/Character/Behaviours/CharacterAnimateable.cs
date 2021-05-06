@@ -41,4 +41,8 @@ public class CharacterAnimateable : MonoBehaviour, IAnimateable, IFlipable {
     private void Awake() {
         this.isFlipped = this.valueOnAwake;
     }
+
+    public void SetBool(string name, bool value) {
+        this.animator.SetBool(name, value);
+    }
 }

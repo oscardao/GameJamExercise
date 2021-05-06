@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -1113615122504954287, guid: 73f2af21e0347ce4abfa695b3aabeb1e, type: 3}
-  m_Color: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 0.22745098}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.2509804}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -163,7 +163,6 @@ MonoBehaviour:
   itemsInWorld: {fileID: 11400000, guid: 68928304cb8b84f4788a6a0f085b2662, type: 2}
   spriteRenderer: {fileID: 3222913998378113988}
   interaction: {fileID: 11400000, guid: 0824892e9aae1684da8bc4bbf68911e6, type: 2}
-  symbolLocation: {fileID: 1133038599396045890}
   onItemPickedUp: {fileID: 11400000, guid: 90d0465caa87ca840be81f170c64ba14, type: 2}
 --- !u!114 &1056818742874348627
 MonoBehaviour:
