@@ -5,10 +5,15 @@ using UnityEngine;
 public class Move : ScriptableObject {
 
     public IEnumerator MoveTo(WorldTile targetTile, float duration, GameObject gameObject) {
-        WorldTile currentTile = gameObject.GetComponent<IPositionable>().WorldTile;
+        IPositionable positionable = gameObject.GetComponent<IPositionable>();
+
+        WorldTile currentTile = positionable.WorldTile;
         currentTile.ObjectOnTile = null;
         targetTile.ObjectOnTile = gameObject;
+
         yield return MoveCO(targetTile.WorldPosition, duration, gameObject);
+        positionable.WorldTile = targetTile;
+
     }
 
     private IEnumerator MoveCO(Vector3 targetPosition, float duration, GameObject gameObject) {

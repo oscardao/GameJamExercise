@@ -1,5 +1,69 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2097429931897437308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135808634350820595}
+  - component: {fileID: 1057704335467475930}
+  m_Layer: 5
+  m_Name: AwaitPause
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &135808634350820595
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097429931897437308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9045218081358409367}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1057704335467475930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097429931897437308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e4035a43f44d34dbca3d62e8018813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listenForKey: 27
+  onKeyPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9141037413348589982}
+        m_TargetAssemblyTypeName: UIPage, Assembly-CSharp
+        m_MethodName: OpenPage
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6608942529693078549, guid: d12441ace6319214ba46c8058d73d1e3, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2220349421928185911
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +314,7 @@ MonoBehaviour:
   variable: {fileID: 11400000, guid: 51c73d8725c81424385d2174fb9395d7, type: 2}
   text: {fileID: 9045218080357509120}
   preText: 'Depth: '
+  postText: 
 --- !u!1 &9045218080360857630
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +368,7 @@ MonoBehaviour:
   variable: {fileID: 11400000, guid: c52abb58e9040b6438d6473bd636c79b, type: 2}
   text: {fileID: 9045218081600173257}
   preText: /
+  postText: 
 --- !u!1 &9045218080511268190
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +595,7 @@ MonoBehaviour:
   variable: {fileID: 11400000, guid: a78c2231296d90444803af607fce8801, type: 2}
   text: {fileID: 9045218080516307164}
   preText: 'Actions Left: '
+  postText: 
 --- !u!1 &9045218080656018036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,6 +1188,7 @@ RectTransform:
   - {fileID: 9045218081767920356}
   - {fileID: 9045218080307160857}
   - {fileID: 597994097490605601}
+  - {fileID: 135808634350820595}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

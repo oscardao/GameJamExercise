@@ -29,13 +29,16 @@ public class RangedEnemy : MonoBehaviour, ITargeting, IShootable {
         get { return this.shootDirection; }
         set { this.shootDirection = value; }
     }
+
     [SerializeField]
     private Transform shootingPoint;
+    public Transform ProjectileSpawn {
+        get { return this.shootingPoint; }
+    }
 
     [Header("Actions")]
     [SerializeField]
-    private PrepareShot prepareShotAction;
-    private IAnimateable animator;
+    private RangedAttack shootingAction;
 
     [SerializeField]
     private GameObject dangerIcon;
@@ -49,7 +52,6 @@ public class RangedEnemy : MonoBehaviour, ITargeting, IShootable {
         this.activeDangerIcons = new Stack<GameObject>();
         this.IsPreparedToShoot = false;
         this.commandable = GetComponent<ICommandable>();
-        this.animator = GetComponent<IAnimateable>();
     }
 
     public void TakeTurn() {
@@ -60,30 +62,20 @@ public class RangedEnemy : MonoBehaviour, ITargeting, IShootable {
         if (this.IsPreparedToShoot) {
             this.IsPreparedToShoot = false;
             this.coolDown = this.shotCoolDown.Value;
-            yield return Shoot();
+            yield return this.shootingAction.Shoot(gameObject, this.activeDangerIcons);
 
         } else {
             this.coolDown--;
             if (this.coolDown <= 0) {
                 this.IsPreparedToShoot = true;
-                this.animator.SetBool("isPrepared", this.IsPreparedToShoot);
-                yield return this.prepareShotAction.Perform(gameObject, this.activeDangerIcons);
-                yield return new WaitForSeconds(0.15f);
-                this.commandable.TurnHandler.NextTurn();
-                yield break;
-            }
-            yield return this.brain.OnTakeTurn(gameObject);
+                yield return this.shootingAction.PrepareShot(gameObject, this.activeDangerIcons);
 
+            } else {
+                yield return this.brain.OnTakeTurn(gameObject);
+            }
         }
 
         this.commandable.TurnHandler.NextTurn();
     }
 
-    private IEnumerator Shoot() {
-        this.animator.SetBool("isPrepared", false);
-        while (this.activeDangerIcons.Count > 0) {
-            Destroy(this.activeDangerIcons.Pop());
-        }
-        yield return null;
-    }
 }
