@@ -23,6 +23,16 @@ public class WorldTile : MonoBehaviour {
     public Vector2Int Position;
     public Vector3 WorldPosition { get { return transform.position; } }
 
+    public Sprite Sprite {
+        get { return this.spriteRenderer.sprite; }
+        set { this.spriteRenderer.sprite = value; }
+    }
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake() {
+        this.spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     public override string ToString() {
         return $"Tile: [Position={this.Position}, WorldPosition={WorldPosition}, ObjectOnTile={this.objectOnTile}, IsEmpty={this.IsEmpty}]";
     }

@@ -10,9 +10,8 @@ public class Move : ScriptableObject {
         WorldTile currentTile = positionable.WorldTile;
         currentTile.ObjectOnTile = null;
         targetTile.ObjectOnTile = gameObject;
-
         yield return MoveCO(targetTile.WorldPosition, duration, gameObject);
-        positionable.WorldTile = targetTile;
+
 
     }
 

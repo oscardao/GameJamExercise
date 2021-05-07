@@ -28,6 +28,12 @@ public class Game : MonoBehaviour {
     [SerializeField]
     private float endGameDelay;
 
+    public static Game Instance;
+
+    private void Awake() {
+        Game.Instance = this;
+    }
+
     public void StartGame() {
         this.level.Value = 1;
         StartCoroutine(StartGameCO());

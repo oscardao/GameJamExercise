@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class SceneController : MonoBehaviour {
 
     [SerializeField]
+    private GameObject panelPrefab;
+    [SerializeField]
     private GameObject panel;
     private Image image;
 
@@ -31,16 +33,18 @@ public class SceneController : MonoBehaviour {
     }
 
     private IEnumerator ChangeCO(string sceneName) {
-        this.panel.SetActive(true);
+        this.panel = Instantiate(this.panelPrefab, transform);
+        this.image = this.panel.GetComponent<Image>();
+        this.image.color = this.fadeIn;
         yield return Fade(this.fadeOut);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
     }
 
     private IEnumerator StartCO() {
         this.panel.SetActive(true);
         yield return Fade(this.fadeIn);
-        this.panel.SetActive(false);
+        Destroy(this.panel);
     }
 
     private IEnumerator Fade(Color endValue) {

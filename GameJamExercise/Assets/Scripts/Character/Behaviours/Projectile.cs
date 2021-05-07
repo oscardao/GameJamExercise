@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-public class Projectile : MonoBehaviour {
+public class Projectile : MonoBehaviour, IProjectile {
 
     [SerializeField, Min(0)]
     private float destroyTime;
@@ -12,16 +12,20 @@ public class Projectile : MonoBehaviour {
         get { return this.speed; }
     }
 
-    public void Go(Vector2 direction) {
+    public void Activate(Vector2 direction) {
 
+        StartCoroutine(ShootCO(direction));
     }
 
-    private IEnumerator GoCO(Vector2 direction) {
-
+    private IEnumerator ShootCO(Vector2 direction) {
         float timer = 0;
 
+        direction.Normalize();
+        this.transform.right = direction;
         while (timer < this.destroyTime) {
             timer += Time.deltaTime;
+            transform.position += (Vector3)direction * this.speed * Time.deltaTime;
+
             yield return null;
         }
 

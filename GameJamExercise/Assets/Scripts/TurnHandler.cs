@@ -13,6 +13,8 @@ public class TurnHandler : ScriptableObject {
 
     [SerializeField]
     private BoolReference IsGameOn;
+    [SerializeField]
+    private float timeBetweenTurns;
 
     public void AddCommandable(int team, ICommandable commandable) {
         if (!this.teams.ContainsKey(team)) {
@@ -55,7 +57,13 @@ public class TurnHandler : ScriptableObject {
 
     public void NextTurn() {
         if (!this.IsGameOn.Value) return;
+        Game.Instance.StartCoroutine(NextTurnCO());
+    }
+
+    private IEnumerator NextTurnCO() {
+
         this.currentTurn++;
+        yield return new WaitForSeconds(this.timeBetweenTurns);
 
         if (this.currentTurn >= this.round.Count) {
             PrepareRound();
@@ -67,7 +75,6 @@ public class TurnHandler : ScriptableObject {
         } else {
             NextTurn();
         }
-
     }
 
 }

@@ -4,8 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class RangedEnemy : MonoBehaviour, ITargeting, IShootable {
+[RequireComponent(typeof(ShootableBehaviour))]
+public class RangedEnemy : MonoBehaviour, ITargeting {
     [Header("Targeting")]
     [SerializeField]
     private GameObjectReference target;
@@ -24,34 +24,18 @@ public class RangedEnemy : MonoBehaviour, ITargeting, IShootable {
     [SerializeField]
     private RangedInt shotCoolDown;
     private int coolDown;
-    private Vector2Int shootDirection;
-    public Vector2Int ShootDirection {
-        get { return this.shootDirection; }
-        set { this.shootDirection = value; }
-    }
-
-    [SerializeField]
-    private Transform shootingPoint;
-    public Transform ProjectileSpawn {
-        get { return this.shootingPoint; }
-    }
 
     [Header("Actions")]
-    [SerializeField]
-    private RangedAttack shootingAction;
-
-    [SerializeField]
-    private GameObject dangerIcon;
-    private Stack<GameObject> activeDangerIcons;
+    private ShootableBehaviour shootingAction;
 
     [SerializeField]
     private AIBrain brain;
 
     private void Awake() {
         this.coolDown = this.shotCoolDown.Value;
-        this.activeDangerIcons = new Stack<GameObject>();
         this.IsPreparedToShoot = false;
         this.commandable = GetComponent<ICommandable>();
+        this.shootingAction = GetComponent<ShootableBehaviour>();
     }
 
     public void TakeTurn() {
@@ -62,13 +46,13 @@ public class RangedEnemy : MonoBehaviour, ITargeting, IShootable {
         if (this.IsPreparedToShoot) {
             this.IsPreparedToShoot = false;
             this.coolDown = this.shotCoolDown.Value;
-            yield return this.shootingAction.Shoot(gameObject, this.activeDangerIcons);
+            yield return this.shootingAction.Shoot();
 
         } else {
             this.coolDown--;
             if (this.coolDown <= 0) {
                 this.IsPreparedToShoot = true;
-                yield return this.shootingAction.PrepareShot(gameObject, this.activeDangerIcons);
+                yield return this.shootingAction.PrepareShot();
 
             } else {
                 yield return this.brain.OnTakeTurn(gameObject);

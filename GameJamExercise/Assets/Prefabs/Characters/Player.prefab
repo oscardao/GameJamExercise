@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7059f2758830914791ef67e9a07ee09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 11400000, guid: 4d1fd4e3acdcdcc408b4b18b65a0711a, type: 2}
   playerActionController: {fileID: 7659128630817552505}
   isGameOn:
     useConstant: 0
@@ -115,6 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec93f312e68f81a4f844f268dff8a606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onReposition:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3211622564280941193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +186,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8226392010942891831}
-  - component: {fileID: 5813503567804229276}
   m_Layer: 0
   m_Name: Events
   m_TagString: Untagged
@@ -206,34 +207,6 @@ Transform:
   m_Father: {fileID: 305469641003901214}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5813503567804229276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6528110739813517011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31bda6a51c6aed5449082dd8584571a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 963fbb732aaffe24aa381dcda06c4e16, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2453195959212052230}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: PerformAction
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &8322854589349729167
 GameObject:
   m_ObjectHideFlags: 0

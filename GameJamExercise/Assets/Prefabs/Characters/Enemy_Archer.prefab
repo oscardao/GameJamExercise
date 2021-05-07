@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 4792878351240546260}
   - component: {fileID: 6708961879213708242}
   - component: {fileID: 8121044160806034679}
+  - component: {fileID: 355031041833199123}
   m_Layer: 0
   m_Name: Enemy_Archer
   m_TagString: Untagged
@@ -160,9 +161,7 @@ MonoBehaviour:
   shotCoolDown:
     _min: 2
     _max: 3
-  shootingPoint: {fileID: 8216863147537386946}
-  shootingAction: {fileID: 11400000, guid: b796a5b8a0e63d749ba93f48de66c57f, type: 2}
-  dangerIcon: {fileID: 4364470367883038175, guid: c541d781c4fe1b046bf80513d5592d95, type: 3}
+  shootingAction: {fileID: 355031041833199123}
   brain: {fileID: 11400000, guid: d709d1d24c46b5b46a47854fb0dfac9d, type: 2}
 --- !u!114 &465734856129042044
 MonoBehaviour:
@@ -255,6 +254,26 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 26e055fa0ddfacf4eb001259996ed623, type: 2}
   - {fileID: 11400000, guid: c26db63a0c941e348b90c04cd85f230b, type: 2}
   defaultInteraction: {fileID: 0}
+--- !u!114 &355031041833199123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3431520136475041380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b441acec9a6fdb47aa3a24721c859ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flip: {fileID: 11400000, guid: e38a4fe667c45c84ca2f219d86693a63, type: 2}
+  flipDuration: 0.115
+  world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
+  dangerIcon: {fileID: 4364470367883038175, guid: c541d781c4fe1b046bf80513d5592d95, type: 3}
+  projectile: {fileID: 5654476920729384633, guid: 3af90a107fabd374aad4305c1d8c14a6, type: 3}
+  projectileSpawnPoint: {fileID: 8216863147537386946}
+  prepareAttackTrigger: onPrepareAttack
+  onAttackTrigger: onAttack
 --- !u!1 &5524260244710636761
 GameObject:
   m_ObjectHideFlags: 0
