@@ -15,9 +15,9 @@ public class ShootableBehaviour : MonoBehaviour {
     [SerializeField]
     private World world;
     [SerializeField]
-    private GameObject dangerIcon;
+    private GameObject dangerIndicatorPrefab;
     [SerializeField]
-    private GameObject projectile;
+    private GameObject projectilePrefab;
     [SerializeField]
     private Transform projectileSpawnPoint;
 
@@ -32,12 +32,14 @@ public class ShootableBehaviour : MonoBehaviour {
     private IAnimateable animator;
     private IPositionable positionable;
     private ITargeting targeting;
+
     private Stack<GameObject> activeDangerIcons;
+    private List<WorldTile> targetedTiles;
     private Vector2Int shootingDirection;
-    private int numberOfTilesToTravel;
 
     private void Awake() {
         this.activeDangerIcons = new Stack<GameObject>();
+        this.targetedTiles = new List<WorldTile>();
         this.animator = GetComponent<IAnimateable>();
         this.positionable = GetComponent<IPositionable>();
         this.targeting = GetComponent<ITargeting>();
@@ -65,9 +67,7 @@ public class ShootableBehaviour : MonoBehaviour {
     }
 
     public IEnumerator UpdateIndicators(float delay) {
-        while (this.activeDangerIcons.Count > 0) {
-            Destroy(this.activeDangerIcons.Pop());
-        }
+        DestroyIndicators();
 
         Vector2Int nextDirection = this.positionable.WorldTile.Position + this.shootingDirection;
 
@@ -75,11 +75,11 @@ public class ShootableBehaviour : MonoBehaviour {
             yield return this.flip.FlipObject(this.world.GetTile(nextDirection).WorldPosition, this.flipDuration, gameObject);
         }
 
-        this.numberOfTilesToTravel = 0;
         while (this.world.ContainsTile(nextDirection)) {
-            this.numberOfTilesToTravel++;
             WorldTile tile = this.world.GetTile(nextDirection);
-            GameObject newIndicator = Instantiate(this.dangerIcon, transform);
+            this.targetedTiles.Add(tile);
+
+            GameObject newIndicator = Instantiate(this.dangerIndicatorPrefab, tile.transform);
             newIndicator.transform.position = tile.WorldPosition;
             this.activeDangerIcons.Push(newIndicator);
 
@@ -104,25 +104,33 @@ public class ShootableBehaviour : MonoBehaviour {
         this.animator.SetBool("isPrepared", false);
         this.animator.SetTrigger(this.onAttackTrigger);
 
-        while (this.activeDangerIcons.Count > 0) {
-            Destroy(this.activeDangerIcons.Pop());
-        }
+        DestroyIndicators();
 
-        Vector2Int targetedTile = this.shootingDirection + this.positionable.WorldTile.Position;
-        if (this.world.ContainsTile(targetedTile)) {
-            Vector2 projectTileDirection = this.world.GetTile(targetedTile).WorldPosition - this.positionable.WorldTile.WorldPosition;
+        if (this.targetedTiles.Count > 0) {
+            WorldTile endTile = this.targetedTiles[0];
+            for (int i = 0; i < this.targetedTiles.Count; i++) {
+                endTile = this.targetedTiles[i];
+                if (endTile.ObjectOnTile == this.targeting.Target) {
+                    break;
+                }
+            }
 
-            GameObject projectile = Instantiate(this.projectile, this.projectileSpawnPoint.position, Quaternion.identity);
+            GameObject projectile = Instantiate(this.projectilePrefab, this.projectileSpawnPoint.position, Quaternion.identity);
             IProjectile projectileMono = projectile.GetComponent<IProjectile>();
-            projectileMono.Activate(projectTileDirection);
-
-            this.animator.SetTrigger(this.onIdleTrigger);
-            yield return new WaitForSeconds(this.numberOfTilesToTravel * projectileMono.Speed * Time.deltaTime);
+            Vector2 projectTileDirection = endTile.WorldPosition - this.positionable.WorldTile.WorldPosition;
+            yield return projectileMono.Activate(projectTileDirection);
         } else {
             yield return new WaitForSeconds(0.1f);
             this.animator.SetTrigger(this.onIdleTrigger);
         }
 
+    }
+
+    private void DestroyIndicators() {
+        while (this.activeDangerIcons.Count > 0) {
+            Destroy(this.activeDangerIcons.Pop());
+        }
+        this.targetedTiles.Clear();
     }
 
 }

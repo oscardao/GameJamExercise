@@ -13,7 +13,7 @@ public class CharacterPositionable : MonoBehaviour, IPositionable {
         }
     }
 
-    public UnityEvent onReposition;
+    public UnityEvent onReposition = new UnityEvent();
     public UnityEvent OnReposition {
         get { return this.onReposition; }
     }

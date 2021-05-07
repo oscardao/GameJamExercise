@@ -161,7 +161,6 @@ MonoBehaviour:
   shotCoolDown:
     _min: 2
     _max: 3
-  shootingAction: {fileID: 355031041833199123}
   brain: {fileID: 11400000, guid: d709d1d24c46b5b46a47854fb0dfac9d, type: 2}
 --- !u!114 &465734856129042044
 MonoBehaviour:
@@ -269,11 +268,12 @@ MonoBehaviour:
   flip: {fileID: 11400000, guid: e38a4fe667c45c84ca2f219d86693a63, type: 2}
   flipDuration: 0.115
   world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
-  dangerIcon: {fileID: 4364470367883038175, guid: c541d781c4fe1b046bf80513d5592d95, type: 3}
-  projectile: {fileID: 5654476920729384633, guid: 3af90a107fabd374aad4305c1d8c14a6, type: 3}
+  dangerIndicatorPrefab: {fileID: 4364470367883038175, guid: c541d781c4fe1b046bf80513d5592d95, type: 3}
+  projectilePrefab: {fileID: 5654476920729384633, guid: 3af90a107fabd374aad4305c1d8c14a6, type: 3}
   projectileSpawnPoint: {fileID: 8216863147537386946}
   prepareAttackTrigger: onPrepareAttack
   onAttackTrigger: onAttack
+  onIdleTrigger: onIdle
 --- !u!1 &5524260244710636761
 GameObject:
   m_ObjectHideFlags: 0

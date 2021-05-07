@@ -8,6 +8,6 @@ public interface IProjectile {
         get;
     }
 
-    public abstract void Activate(Vector2 direction);
+    public abstract IEnumerator Activate(Vector2 endPoint);
 
 }

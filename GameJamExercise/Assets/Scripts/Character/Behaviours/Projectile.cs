@@ -12,19 +12,14 @@ public class Projectile : MonoBehaviour, IProjectile {
         get { return this.speed; }
     }
 
-    public void Activate(Vector2 direction) {
-
-        StartCoroutine(ShootCO(direction));
-    }
-
-    private IEnumerator ShootCO(Vector2 direction) {
+    public IEnumerator Activate(Vector2 endPoint) {
         float timer = 0;
 
-        direction.Normalize();
-        this.transform.right = direction;
+        endPoint.Normalize();
+        this.transform.right = endPoint;
         while (timer < this.destroyTime) {
             timer += Time.deltaTime;
-            transform.position += (Vector3)direction * this.speed * Time.deltaTime;
+            transform.position += (Vector3)endPoint * this.speed * Time.deltaTime;
 
             yield return null;
         }
