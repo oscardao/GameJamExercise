@@ -12,15 +12,28 @@ public class Projectile : MonoBehaviour, IProjectile {
         get { return this.speed; }
     }
 
-    public IEnumerator Activate(Vector2 endPoint) {
+    [SerializeField]
+    private Flip flip;
+    [SerializeField]
+    private OnDamage onDamage;
+    [SerializeField]
+    private float onDamageDuration;
+
+    public IEnumerator HitTarget(GameObject shooter, GameObject target) {
+
+
+        yield return this.flip.FlipObject(shooter.transform.position, 0, target);
+        yield return this.onDamage.DamageObject(target, this.onDamageDuration);
+    }
+
+    public IEnumerator Activate(Vector2 direction) {
         float timer = 0;
 
-        endPoint.Normalize();
-        this.transform.right = endPoint;
+        direction.Normalize();
+        this.transform.right = direction;
         while (timer < this.destroyTime) {
             timer += Time.deltaTime;
-            transform.position += (Vector3)endPoint * this.speed * Time.deltaTime;
-
+            transform.position += (Vector3)direction * this.speed * Time.deltaTime;
             yield return null;
         }
 

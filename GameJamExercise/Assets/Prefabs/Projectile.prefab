@@ -96,4 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 4
-  speed: 8
+  speed: 15
+  flip: {fileID: 11400000, guid: e38a4fe667c45c84ca2f219d86693a63, type: 2}
+  onDamage: {fileID: 11400000, guid: bcedca4ee8db882429b7989f922cc0b3, type: 2}
+  onDamageDuration: 0.75

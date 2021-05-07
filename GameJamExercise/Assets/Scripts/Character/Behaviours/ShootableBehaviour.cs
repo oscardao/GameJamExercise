@@ -104,22 +104,32 @@ public class ShootableBehaviour : MonoBehaviour {
         this.animator.SetBool("isPrepared", false);
         this.animator.SetTrigger(this.onAttackTrigger);
 
-        DestroyIndicators();
 
         if (this.targetedTiles.Count > 0) {
             WorldTile endTile = this.targetedTiles[0];
+            bool tileHasTarget = false;
             for (int i = 0; i < this.targetedTiles.Count; i++) {
                 endTile = this.targetedTiles[i];
                 if (endTile.ObjectOnTile == this.targeting.Target) {
+                    tileHasTarget = true;
                     break;
                 }
             }
 
+            DestroyIndicators();
+
             GameObject projectile = Instantiate(this.projectilePrefab, this.projectileSpawnPoint.position, Quaternion.identity);
             IProjectile projectileMono = projectile.GetComponent<IProjectile>();
             Vector2 projectTileDirection = endTile.WorldPosition - this.positionable.WorldTile.WorldPosition;
-            yield return projectileMono.Activate(projectTileDirection);
+
+            if (tileHasTarget) {
+                yield return projectileMono.HitTarget(gameObject, this.targeting.Target);
+            } else {
+                yield return projectileMono.Activate(projectTileDirection);
+            }
+
         } else {
+            DestroyIndicators();
             yield return new WaitForSeconds(0.1f);
             this.animator.SetTrigger(this.onIdleTrigger);
         }

@@ -16,21 +16,8 @@ public class Attack : ScriptableObject {
         IAnimateable attackerAnimator = attacker.GetComponent<IAnimateable>();
         attackerAnimator.SetTrigger(this.onAttackTrigger);
 
-        IDamageable targetDamageable = target.GetComponent<IDamageable>();
-        targetDamageable.OnDamage();
-
-        if (targetDamageable.IsDead) {
-            IPositionable targetPositionable = target.GetComponent<IPositionable>();
-            targetPositionable.WorldTile.ObjectOnTile = null;
-        }
-
         yield return new WaitForSeconds(duration);
 
         attackerAnimator.SetTrigger(this.onIdleTrigger);
-
-        if (targetDamageable.IsDead) {
-            target.SetActive(false);
-        }
-
     }
 }

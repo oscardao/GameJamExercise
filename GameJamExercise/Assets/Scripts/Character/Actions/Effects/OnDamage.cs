@@ -21,6 +21,14 @@ public class OnDamage : ScriptableObject {
         IAnimateable targetAnimator = target.GetComponent<IAnimateable>();
         targetAnimator.SetTrigger(this.onDamageTrigger);
 
+        IDamageable targetDamageable = target.GetComponent<IDamageable>();
+        targetDamageable.OnDamage();
+
+        if (targetDamageable.IsDead) {
+            IPositionable targetPositionable = target.GetComponent<IPositionable>();
+            targetPositionable.WorldTile.ObjectOnTile = null;
+        }
+
         SpriteRenderer spriteRenderer = targetAnimator.SpriteRenderer;
         Material initialMaterial = spriteRenderer.material;
         spriteRenderer.material = this.flashMaterial;
@@ -37,6 +45,11 @@ public class OnDamage : ScriptableObject {
         spriteRenderer.material.SetFloat("_FlashAmount", 0);
         spriteRenderer.material = initialMaterial;
         targetAnimator.SetTrigger(this.onIdleTrigger);
+
+        if (targetDamageable.IsDead) {
+            target.SetActive(false);
+        }
+
     }
 
 }

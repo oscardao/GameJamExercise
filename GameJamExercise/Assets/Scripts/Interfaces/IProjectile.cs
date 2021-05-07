@@ -8,6 +8,8 @@ public interface IProjectile {
         get;
     }
 
+    public abstract IEnumerator HitTarget(GameObject shooter, GameObject target);
+
     public abstract IEnumerator Activate(Vector2 endPoint);
 
 }
