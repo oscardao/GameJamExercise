@@ -46,6 +46,7 @@ public class ShootableBehaviour : MonoBehaviour {
     }
 
     private void OnDisable() {
+        DestroyIndicators();
         this.positionable.OnReposition.RemoveListener(OnReposition);
     }
 
@@ -119,21 +120,23 @@ public class ShootableBehaviour : MonoBehaviour {
             DestroyIndicators();
 
             GameObject projectile = Instantiate(this.projectilePrefab, this.projectileSpawnPoint.position, Quaternion.identity);
-            IProjectile projectileMono = projectile.GetComponent<IProjectile>();
+            Projectile projectileMono = projectile.GetComponent<Projectile>();
             Vector2 projectTileDirection = endTile.WorldPosition - this.positionable.WorldTile.WorldPosition;
 
             if (tileHasTarget) {
-                yield return projectileMono.HitTarget(gameObject, this.targeting.Target);
+                projectileMono.HitTarget(gameObject, this.targeting.Target, this.projectileSpawnPoint);
+                yield return new WaitForSeconds(projectileMono.onDamageDuration + projectileMono.onHitTargetDuration);
             } else {
-                yield return projectileMono.Activate(projectTileDirection);
+                projectileMono.ActivateProjectile(projectTileDirection);
+                yield return new WaitForSeconds(0.3f);
+
             }
 
         } else {
             DestroyIndicators();
             yield return new WaitForSeconds(0.1f);
-            this.animator.SetTrigger(this.onIdleTrigger);
         }
-
+        this.animator.SetTrigger(this.onIdleTrigger);
     }
 
     private void DestroyIndicators() {

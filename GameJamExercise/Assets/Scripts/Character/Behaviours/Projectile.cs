@@ -13,17 +13,43 @@ public class Projectile : MonoBehaviour, IProjectile {
     }
 
     [SerializeField]
+    private SpriteRenderer spriteRenderer;
+
+    [SerializeField]
     private Flip flip;
     [SerializeField]
     private OnDamage onDamage;
     [SerializeField]
-    private float onDamageDuration;
+    private MoveTowards knockBack;
+    public float onDamageDuration;
+    public float onHitTargetDuration;
 
-    public IEnumerator HitTarget(GameObject shooter, GameObject target) {
+    public void HitTarget(GameObject shooter, GameObject target, Transform shootingPoint) {
+        StartCoroutine(HitTargetCO(shooter, target, shootingPoint));
+    }
 
+    private IEnumerator HitTargetCO(GameObject shooter, GameObject target, Transform shootingPoint) {
+        Vector3 endValue = target.transform.position + shootingPoint.localPosition;
+        this.transform.right = (endValue - shootingPoint.position).normalized;
 
-        yield return this.flip.FlipObject(shooter.transform.position, 0, target);
-        yield return this.onDamage.DamageObject(target, this.onDamageDuration);
+        float timer = 0;
+        while (timer < this.onHitTargetDuration) {
+            transform.position = Vector3.Lerp(shootingPoint.position, endValue, timer / this.onHitTargetDuration);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        this.spriteRenderer.enabled = false;
+        OnDamageTarget(shooter, target);
+    }
+
+    private void OnDamageTarget(GameObject shooter, GameObject target) {
+        StartCoroutine(this.flip.FlipObject(shooter.transform.position, 0, target));
+        StartCoroutine(this.onDamage.DamageObject(target, this.onDamageDuration));
+        StartCoroutine(this.knockBack.MoveObjectTowards(target, transform.right, this.onDamageDuration));
+    }
+
+    public void ActivateProjectile(Vector2 direction) {
+        StartCoroutine(Activate(direction));
     }
 
     public IEnumerator Activate(Vector2 direction) {
