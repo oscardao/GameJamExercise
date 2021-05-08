@@ -9,9 +9,7 @@ public class CharacterSpawner : MonoBehaviour {
 
     [Header("Properties")]
     [SerializeField]
-    private IntReference Level;
-    [SerializeField, Min(0)]
-    private int numberOfEnemiesOffset;
+    private LevelDataReference chosenLevelData;
 
     [Header("Player")]
     [SerializeField]
@@ -22,8 +20,6 @@ public class CharacterSpawner : MonoBehaviour {
     [Header("Enemies")]
     [SerializeField]
     private GameObjectSet enemiesInWorld;
-    [SerializeField]
-    private GameObject[] enemies;
 
     public void PlaceCharacters(List<WorldTile> playerTiles, List<WorldTile> enemyTiles) {
         this.enemiesInWorld.Clear();
@@ -33,10 +29,12 @@ public class CharacterSpawner : MonoBehaviour {
         playerTile.ObjectOnTile = player;
         this.playerVariable.Value = player;
 
-        for (int i = 0; i < this.Level.Value + this.numberOfEnemiesOffset; i++) {
+        GameObject[] enemies = this.chosenLevelData.Value.Enemies;
+
+        for (int i = 0; i < this.chosenLevelData.Value.NumberOfEnemies; i++) {
             WorldTile enemyTile = enemyTiles[Random.Range(0, enemyTiles.Count)];
             enemyTiles.Remove(enemyTile);
-            GameObject enemy = Instantiate(this.enemies[Random.Range(0, this.enemies.Length)], enemyTile.WorldPosition, Quaternion.identity);
+            GameObject enemy = Instantiate(enemies[Random.Range(0, enemies.Length)], enemyTile.WorldPosition, Quaternion.identity);
             enemyTile.ObjectOnTile = enemy;
             this.enemiesInWorld.Add(enemy);
         }

@@ -15,14 +15,12 @@ public class WorldHandler : MonoBehaviour {
     private World world;
 
     [Header("World Generation")]
-    [SerializeField, Min(1)]
-    private int patchSize;
-    [SerializeField, Min(1)]
-    private int numberOfPatchesOffset;
+    [SerializeField]
+    private LevelData[] levelDatas;
+    [SerializeField]
+    private LevelDataReference chosenLevelData;
     [SerializeField]
     private GameObject tilePrefab;
-    [SerializeField]
-    private int breakEveryIteration;
 
     [Header("World Objects")]
     [SerializeField]
@@ -36,13 +34,11 @@ public class WorldHandler : MonoBehaviour {
     [Header("World Presentation")]
     [SerializeField]
     private Vector3 tileSpawn;
-    private Vector3 flyOffset;
     [SerializeField]
     private float flyDuration;
     [SerializeField]
     private float timeBetweeenFlys;
-    int topBound;
-    float yOffset;
+    private float yOffset;
     private List<GameObject> tilesSpawned;
 
 
@@ -54,77 +50,51 @@ public class WorldHandler : MonoBehaviour {
         this.enemyTiles = new List<WorldTile>();
         this.tilesSpawned = new List<GameObject>();
 
-        yield return GenerateTiles(this.level.Value + this.numberOfPatchesOffset);
+        for (int i = 0; i < this.levelDatas.Length; i++) {
+            if (this.levelDatas[i].AppearsAtLevel <= this.level.Value) {
+                this.chosenLevelData.Value = this.levelDatas[i];
+            }
+        }
 
+        GenerateTiles();
         this.characterSpawner.PlaceCharacters(this.playerTiles, this.enemyTiles);
         this.itemHandler.PlaceItems();
         yield return PresentWorld();
     }
 
-    private IEnumerator GenerateTiles(int worldSize) {
-        List<Vector2Int> freePatchSpots = new List<Vector2Int>();
-        Queue<Vector2Int> usedPatchSpots = new Queue<Vector2Int>();
+    private void GenerateTiles() {
+        Texture2D map = this.chosenLevelData.Value.Maps[Random.Range(0, this.chosenLevelData.Value.Maps.Length)];
 
-        this.topBound = 1;
-        int iteration = 0;
+        for (int x = 0; x < map.width; x++) {
+            for (int y = 0; y < map.height; y++) {
+                Color cellColor = map.GetPixel(x, y);
 
-        freePatchSpots.Add(Vector2Int.zero);
-
-        for (int i = 0; i < worldSize; i++) {
-            iteration++;
-            if (iteration % this.breakEveryIteration == 0) yield return null;
-            Vector2Int patch = freePatchSpots[Random.Range(0, freePatchSpots.Count)];
-            usedPatchSpots.Enqueue(patch);
-            freePatchSpots.Remove(patch);
-            Debug.Log(patch);
-            if (this.topBound < patch.y) {
-                Debug.Log(patch.y);
-                this.topBound = patch.y;
-            }
-
-            for (int x = -1; x <= 1; x++) {
-                for (int y = -1; y <= 1; y++) {
-                    if (Mathf.Abs(x) == Mathf.Abs(y)) continue;
-                    Vector2Int potentialFreeSpot = new Vector2Int(x, y) + patch;
-                    if (!usedPatchSpots.Contains(potentialFreeSpot) && !freePatchSpots.Contains(potentialFreeSpot)) {
-                        freePatchSpots.Add(potentialFreeSpot);
-                    }
+                if (cellColor.Equals(Color.magenta)) {
+                    continue;
+                } else if (cellColor.Equals(Color.green)) {
+                    WorldTile worldTile = AddTile(new Vector2Int(x, y));
+                    this.playerTiles.Add(worldTile);
+                } else if (cellColor.Equals(Color.red)) {
+                    WorldTile worldTile = AddTile(new Vector2Int(x, y));
+                    this.enemyTiles.Add(worldTile);
+                } else {
+                    AddTile(new Vector2Int(x, y));
                 }
+
             }
-        }
-
-        iteration = 0;
-        this.yOffset = this.patchSize * 0.5f * (this.topBound + 1);
-        Debug.Log(this.topBound);
-        AddTile(usedPatchSpots.Dequeue(), this.playerTiles);
-
-        while (usedPatchSpots.Count > 0) {
-            iteration++;
-            if (iteration % this.breakEveryIteration == 0) yield return null;
-            AddTile(usedPatchSpots.Dequeue(), this.enemyTiles);
         }
 
     }
 
-    private void AddTile(Vector2Int patch, List<WorldTile> tileSpawns) {
-        for (int x = 0; x < this.patchSize; x++) {
-            for (int y = 0; y < this.patchSize; y++) {
-                int tileX = x + this.patchSize * patch.x;
-                int tileY = y + this.patchSize * patch.y;
-                Vector2Int tilePosition = new Vector2Int(tileX, tileY);
-
-                GameObject newTile = Instantiate(this.tilePrefab, transform);
-                WorldTile worldTile = newTile.GetComponent<WorldTile>();
-                worldTile.Position = tilePosition;
-                Vector3 spawnOffset = new Vector3(this.tileSpawn.x, this.tileSpawn.y - this.yOffset);
-
-                this.tilesSpawned.Add(newTile);
-
-                newTile.transform.position = this.tilemap.GetCellCenterWorld((Vector3Int)tilePosition) + spawnOffset;
-                tileSpawns.Add(worldTile);
-                this.world.AddTile(worldTile);
-            }
-        }
+    private WorldTile AddTile(Vector2Int position) {
+        GameObject newTile = Instantiate(this.tilePrefab, transform);
+        WorldTile worldTile = newTile.GetComponent<WorldTile>();
+        worldTile.Position = position;
+        Vector3 spawnOffset = new Vector3(this.tileSpawn.x, this.tileSpawn.y - this.yOffset);
+        this.tilesSpawned.Add(newTile);
+        newTile.transform.position = this.tilemap.GetCellCenterWorld((Vector3Int)position) + spawnOffset;
+        this.world.AddTile(worldTile);
+        return worldTile;
     }
 
     private void OnDrawGizmos() {

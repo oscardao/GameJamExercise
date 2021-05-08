@@ -420,6 +420,7 @@ MonoBehaviour:
   world: {fileID: 863979778}
   onGameStarted: {fileID: 11400000, guid: 84047d431b83d114c940af552b07a292, type: 2}
   onGameEnded: {fileID: 11400000, guid: 3d593bac93e5e6341923267398b7f3d6, type: 2}
+  onClearTrash: {fileID: 11400000, guid: 4562f093afa74db4e8ed7ed63cbf4a49, type: 2}
   startGameDelay: 0.8
   nextLevelDelay: 1.75
   endGameDelay: 1.75
@@ -646,15 +647,19 @@ MonoBehaviour:
     constantValue: 0
     variable: {fileID: 11400000, guid: 51c73d8725c81424385d2174fb9395d7, type: 2}
   world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
-  patchSize: 3
-  numberOfPatchesOffset: 1
+  levelDatas:
+  - {fileID: 11400000, guid: b5e70d5f74bc8094f8098e20951b2e37, type: 2}
+  - {fileID: 11400000, guid: f723684edf6fb2f45b1635b14ca71ddc, type: 2}
+  chosenLevelData:
+    useConstant: 0
+    constantValue: {fileID: 11400000, guid: b5e70d5f74bc8094f8098e20951b2e37, type: 2}
+    variable: {fileID: 11400000, guid: af62f199528e3cb4cb212b46dc6ea1a5, type: 2}
   tilePrefab: {fileID: 6632879156637247636, guid: 438a8776e3cc89447b42824d17f7145e, type: 3}
-  breakEveryIteration: 50
   itemHandler: {fileID: 1748933762}
   characterSpawner: {fileID: 1118087788}
   tileSpawn: {x: 0, y: -4, z: 0}
-  flyDuration: 0.5
-  timeBetweeenFlys: 0.02
+  flyDuration: 0.4
+  timeBetweeenFlys: 0.06
 --- !u!4 &863979779
 Transform:
   m_ObjectHideFlags: 0
@@ -892,17 +897,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed23eae1faee76f489b67f52823a2be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level:
+  chosenLevelData:
     useConstant: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 51c73d8725c81424385d2174fb9395d7, type: 2}
-  numberOfEnemiesOffset: 3
+    constantValue: {fileID: 0}
+    variable: {fileID: 11400000, guid: af62f199528e3cb4cb212b46dc6ea1a5, type: 2}
   playerVariable: {fileID: 11400000, guid: 4d1fd4e3acdcdcc408b4b18b65a0711a, type: 2}
   playerPrefab: {fileID: 4906264221807599087, guid: 40524fb262f11754bab5b5e39b6fb7f7, type: 3}
   enemiesInWorld: {fileID: 11400000, guid: d8db281706b60cb40a717a502084f73c, type: 2}
-  enemies:
-  - {fileID: 3431520136475041380, guid: aaa061076452b824c9aaa4797c193191, type: 3}
-  - {fileID: 1419710753641762874, guid: 33ca937655ba194418c9d136d2c2d653, type: 3}
 --- !u!4 &1118087789
 Transform:
   m_ObjectHideFlags: 0
@@ -1263,11 +1264,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587c36ff7251e67468bec448e610de70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level:
+  chosenLevelData:
     useConstant: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 51c73d8725c81424385d2174fb9395d7, type: 2}
-  numberOfItemsOffset: 2
+    constantValue: {fileID: 0}
+    variable: {fileID: 11400000, guid: af62f199528e3cb4cb212b46dc6ea1a5, type: 2}
   itemsInWorld: {fileID: 11400000, guid: 68928304cb8b84f4788a6a0f085b2662, type: 2}
   world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
   itemPrefab: {fileID: 6077774123959777848, guid: 44dff24f23dbb404f8e37d87ac463812, type: 3}

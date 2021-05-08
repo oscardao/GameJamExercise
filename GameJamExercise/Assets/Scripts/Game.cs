@@ -19,6 +19,8 @@ public class Game : MonoBehaviour {
     private NoArgEvent onGameStarted;
     [SerializeField]
     private NoArgEvent onGameEnded;
+    [SerializeField]
+    private NoArgEvent onClearTrash;
 
     [Header("Timers")]
     [SerializeField]
@@ -36,14 +38,17 @@ public class Game : MonoBehaviour {
 
     public void StartGame() {
         this.level.Value = 1;
+        this.onClearTrash.Raise();
         StartCoroutine(StartGameCO());
     }
 
     public void NextLevel() {
+        this.onClearTrash.Raise();
         StartCoroutine(NextLevelCO());
     }
 
     public void EndGame() {
+        this.onClearTrash.Raise();
         StartCoroutine(EndGameCO());
     }
 

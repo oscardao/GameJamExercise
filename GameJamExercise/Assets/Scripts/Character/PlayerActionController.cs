@@ -57,6 +57,7 @@ public class PlayerActionController : MonoBehaviour {
 
     private GameObject InstantiateHighlight() {
         GameObject highlight = Instantiate(this.highlightPrefab, Vector3.zero, Quaternion.identity);
+        highlight.transform.SetParent(transform);
         highlight.SetActive(false);
         highlight.GetComponent<TileHighlight>().playerActions = this;
         return highlight;

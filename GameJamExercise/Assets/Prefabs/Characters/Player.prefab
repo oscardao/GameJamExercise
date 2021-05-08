@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 305469641003901214}
   - component: {fileID: 2453195959212052230}
-  - component: {fileID: 7659128630817552505}
   - component: {fileID: 4683512952322915372}
   - component: {fileID: 7980209849787680338}
   - component: {fileID: 3211622564280941193}
   - component: {fileID: 6425436997325022488}
   - component: {fileID: 1182397632630499274}
+  - component: {fileID: 4672280627276371997}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7059f2758830914791ef67e9a07ee09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerActionController: {fileID: 7659128630817552505}
+  playerActionController: {fileID: 4672280627276371997}
   isGameOn:
     useConstant: 0
     constantValue: 0
@@ -69,21 +69,6 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: c52abb58e9040b6438d6473bd636c79b, type: 2}
---- !u!114 &7659128630817552505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4906264221807599087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e989e5a55187b1d48b863e8d1394cca1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
-  highlightPrefab: {fileID: 7404204158688057328, guid: d20b1ac75286d854e840109d4037d7ef, type: 3}
-  selectorPrefab: {fileID: 22193872878392156, guid: 0066095a3efe8d44a9f07f02347cabc1, type: 3}
 --- !u!114 &4683512952322915372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +162,21 @@ MonoBehaviour:
         m_CallState: 2
   turnHandler: {fileID: 11400000, guid: 02a5a1ac8d2f3884c9791a549a49d4e7, type: 2}
   team: 1
+--- !u!114 &4672280627276371997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906264221807599087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e989e5a55187b1d48b863e8d1394cca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
+  highlightPrefab: {fileID: 7404204158688057328, guid: d20b1ac75286d854e840109d4037d7ef, type: 3}
+  selectorPrefab: {fileID: 22193872878392156, guid: 0066095a3efe8d44a9f07f02347cabc1, type: 3}
 --- !u!1 &6528110739813517011
 GameObject:
   m_ObjectHideFlags: 0

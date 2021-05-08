@@ -9,9 +9,7 @@ public class ItemHandler : MonoBehaviour {
 
     [Header("Properties")]
     [SerializeField]
-    private IntReference level;
-    [SerializeField]
-    private int numberOfItemsOffset;
+    private LevelDataReference chosenLevelData;
     [SerializeField]
     private ItemSet itemsInWorld;
     [SerializeField]
@@ -42,7 +40,7 @@ public class ItemHandler : MonoBehaviour {
 
     public void PlaceItems() {
         List<WorldTile> emptyTiles = this.world.EmptyTiles;
-        int itemsToPlace = this.level.Value + this.numberOfItemsOffset - this.itemsInWorld.Length;
+        int itemsToPlace = this.chosenLevelData.Value.NumberOfItems - this.itemsInWorld.Length;
 
         for (int i = 0; i < itemsToPlace; i++) {
             if (emptyTiles.Count <= 0) return;

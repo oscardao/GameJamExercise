@@ -65,3 +65,6 @@ public class FloatReferenceDrawer : ReferenceDrawer { };
 
 [CustomPropertyDrawer(typeof(BoolReference))]
 public class BoolReferenceDrawer : ReferenceDrawer { };
+
+[CustomPropertyDrawer(typeof(LevelDataReference))]
+public class LevelDataReferenceDrawer : ReferenceDrawer { };
