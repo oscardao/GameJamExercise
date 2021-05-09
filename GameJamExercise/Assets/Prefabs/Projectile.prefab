@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 227325387380422554, guid: 24ad7bc13802b4544add9b6493485755, type: 3}
+  m_Sprite: {fileID: -4531982520312367453, guid: 24ad7bc13802b4544add9b6493485755, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 4
-  speed: 15
+  speed: 14
+  rotationPerSecond: 250
   spriteRenderer: {fileID: 8739942412040264466}
   flip: {fileID: 11400000, guid: e38a4fe667c45c84ca2f219d86693a63, type: 2}
   onDamage: {fileID: 11400000, guid: bcedca4ee8db882429b7989f922cc0b3, type: 2}

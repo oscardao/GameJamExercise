@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour, IProjectile {
 
+    [Header("Projectile Properties")]
     [SerializeField, Min(0)]
     private float destroyTime;
     [SerializeField]
@@ -11,10 +12,13 @@ public class Projectile : MonoBehaviour, IProjectile {
     public float Speed {
         get { return this.speed; }
     }
+    [SerializeField]
+    private float rotationPerSecond;
 
     [SerializeField]
     private SpriteRenderer spriteRenderer;
 
+    [Header("Behaviour")]
     [SerializeField]
     private Flip flip;
     [SerializeField]
@@ -30,7 +34,7 @@ public class Projectile : MonoBehaviour, IProjectile {
 
     private IEnumerator HitTargetCO(GameObject shooter, GameObject target, Transform shootingPoint) {
         Vector3 endValue = target.transform.position + shootingPoint.localPosition;
-        this.transform.right = (endValue - shootingPoint.position).normalized;
+        // this.transform.right = (endValue - shootingPoint.position).normalized;
 
         float timer = 0;
         while (timer < this.onHitTargetDuration) {
@@ -56,7 +60,7 @@ public class Projectile : MonoBehaviour, IProjectile {
         float timer = 0;
 
         direction.Normalize();
-        this.transform.right = direction;
+        // this.transform.right = direction;
         while (timer < this.destroyTime) {
             timer += Time.deltaTime;
             transform.position += (Vector3)direction * this.speed * Time.deltaTime;
@@ -64,6 +68,10 @@ public class Projectile : MonoBehaviour, IProjectile {
         }
 
         Destroy(gameObject);
+    }
+
+    private void Update() {
+        transform.Rotate(0, 0, this.rotationPerSecond * Time.deltaTime);
     }
 
 }

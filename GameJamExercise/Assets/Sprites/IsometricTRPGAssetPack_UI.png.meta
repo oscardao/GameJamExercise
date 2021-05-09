@@ -504,7 +504,7 @@ TextureImporter:
         width: 3
         height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -512,6 +512,27 @@ TextureImporter:
       bones: []
       spriteID: 361052d2455033b60800000000000000
       internalID: 7724523644963324259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IsometricTRPGAssetPack_UI_8
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 5
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a67084c8e92b11c0800000000000000
+      internalID: -4531982520312367453
       vertices: []
       indices: 
       edges: []

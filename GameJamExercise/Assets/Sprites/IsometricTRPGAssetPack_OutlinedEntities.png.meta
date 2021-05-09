@@ -74,6 +74,21 @@ TextureImporter:
   - first:
       213: -44836001944306802
     second: IsometricTRPGAssetPack_OutlinedEntities_23
+  - first:
+      213: -8478659139028132951
+    second: IsometricTRPGAssetPack_OutlinedEntities_24
+  - first:
+      213: 1784973847125607977
+    second: IsometricTRPGAssetPack_OutlinedEntities_25
+  - first:
+      213: -1358538819367735961
+    second: IsometricTRPGAssetPack_OutlinedEntities_26
+  - first:
+      213: -6407740094637707852
+    second: IsometricTRPGAssetPack_OutlinedEntities_27
+  - first:
+      213: 384862822713780692
+    second: IsometricTRPGAssetPack_OutlinedEntities_28
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -698,6 +713,111 @@ TextureImporter:
       bones: []
       spriteID: e8bf5fec4e5b06ff0800000000000000
       internalID: -44836001944306802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IsometricTRPGAssetPack_OutlinedEntities_24
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 309
+        width: 11
+        height: 11
+      alignment: 9
+      pivot: {x: 0.36363637, y: 0.09090909}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9abdb965f60c55a80800000000000000
+      internalID: -8478659139028132951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IsometricTRPGAssetPack_OutlinedEntities_25
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 309
+        width: 11
+        height: 12
+      alignment: 9
+      pivot: {x: 0.36363637, y: 0.083333336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 926c84bb14085c810800000000000000
+      internalID: 1784973847125607977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IsometricTRPGAssetPack_OutlinedEntities_26
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 309
+        width: 10
+        height: 11
+      alignment: 9
+      pivot: {x: 0.4, y: 0.09090909}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76de1024420852de0800000000000000
+      internalID: -1358538819367735961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IsometricTRPGAssetPack_OutlinedEntities_27
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 309
+        width: 12
+        height: 11
+      alignment: 9
+      pivot: {x: 0.4166667, y: 0.09090909}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd671665522317a0800000000000000
+      internalID: -6407740094637707852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IsometricTRPGAssetPack_OutlinedEntities_28
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 308
+        width: 10
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.09090909}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9eb1bb2be475500800000000000000
+      internalID: 384862822713780692
       vertices: []
       indices: 
       edges: []
