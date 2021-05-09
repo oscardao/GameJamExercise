@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 135808634350820595}
   - component: {fileID: 1057704335467475930}
+  - component: {fileID: 5179859248261238832}
   m_Layer: 5
   m_Name: AwaitPause
   m_TagString: Untagged
@@ -64,6 +65,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5179859248261238832}
+        m_TargetAssemblyTypeName: GamePauser, Assembly-CSharp
+        m_MethodName: SetValue
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &5179859248261238832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097429931897437308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02163acf78e4d8e4085eb64a057ac961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGamePaused:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 758674179b876424484107df7b542165, type: 2}
 --- !u!1 &2220349421928185911
 GameObject:
   m_ObjectHideFlags: 0

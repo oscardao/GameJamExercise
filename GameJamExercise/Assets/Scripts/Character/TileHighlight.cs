@@ -12,6 +12,8 @@ public class TileHighlight : MonoBehaviour {
     [SerializeField]
     private GameObjectReference player;
     private Player playerMono;
+    [SerializeField]
+    private BoolReference isGamePaused;
 
     [Header("Interaction")]
     [SerializeField]
@@ -42,11 +44,13 @@ public class TileHighlight : MonoBehaviour {
     }
 
     private void OnMouseEnter() {
+        if (this.isGamePaused.Value) return;
         this.playerActions.SetSelector(transform.position);
         this.onPreviewInteraction.Raise(this.interaction.Description);
     }
 
     private void OnMouseDown() {
+        if (this.isGamePaused.Value) return;
         this.playerActions.ClearHighlights();
         this.playerMono.PerformAction(this.interaction, this.tile);
         this.onExitPreview.Raise();

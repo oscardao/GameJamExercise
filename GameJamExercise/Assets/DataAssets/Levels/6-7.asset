@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08786a1cbacae6a48846cf04cfe8e7cd, type: 3}
-  m_Name: 4
+  m_Name: 6-7
   m_EditorClassIdentifier: 
-  appearsAtLevel: 4
+  appearsAtLevel: 6
   maps:
-  - {fileID: 2800000, guid: 31ce60ca2326bf24288a042d4c670ef9, type: 3}
-  numberOfEnemies: 2
+  - {fileID: 2800000, guid: ddc4633c95dbfb745bd4d2f359627aa5, type: 3}
+  numberOfEnemies: 5
   enemies:
   - {fileID: 3431520136475041380, guid: aaa061076452b824c9aaa4797c193191, type: 3}
-  numberOfItems: 2
+  - {fileID: 1419710753641762874, guid: 33ca937655ba194418c9d136d2c2d653, type: 3}
+  numberOfItems: 5

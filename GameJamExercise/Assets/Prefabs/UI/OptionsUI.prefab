@@ -388,6 +388,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6092341366353126239}
     m_Modifications:
+    - target: {fileID: 3990909015188612260, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3990909015188612260, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3990909015188612260, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8480762401979735535}
+    - target: {fileID: 3990909015188612260, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3990909015188612260, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3990909015188612260, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIPage, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3990909015188612260, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1793996488707548120, guid: 11e6afee0474c9144865c1ec4217bfc2, type: 3}
+    - target: {fileID: 3990909015188612260, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3990909015188612265, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
       propertyPath: m_Name
       value: Settings

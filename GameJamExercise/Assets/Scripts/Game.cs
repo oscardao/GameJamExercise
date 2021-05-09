@@ -13,6 +13,8 @@ public class Game : MonoBehaviour {
     private TurnHandler turnHandler;
     [SerializeField]
     private WorldHandler world;
+    [SerializeField]
+    private BoolReference IsGamePaused;
 
     [Header("Events")]
     [SerializeField]
@@ -37,6 +39,7 @@ public class Game : MonoBehaviour {
     }
 
     public void StartGame() {
+        this.IsGamePaused.Value = false;
         this.level.Value = 1;
         this.onClearTrash.Raise();
         StartCoroutine(StartGameCO());

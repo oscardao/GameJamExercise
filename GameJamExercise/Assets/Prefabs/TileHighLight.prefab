@@ -130,6 +130,10 @@ MonoBehaviour:
     useConstant: 0
     constantValue: {fileID: 0}
     variable: {fileID: 11400000, guid: 4d1fd4e3acdcdcc408b4b18b65a0711a, type: 2}
+  isGamePaused:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 758674179b876424484107df7b542165, type: 2}
   defaultInteraction: {fileID: 11400000, guid: cd5ccad64ae1440478512edafba20621, type: 2}
   onPreviewInteraction: {fileID: 11400000, guid: 984c9482d9e4593469c5ba6a7fea0b1b, type: 2}
   onExitPreview: {fileID: 11400000, guid: ff0e9204c1029ef46b4ddafa01a45238, type: 2}

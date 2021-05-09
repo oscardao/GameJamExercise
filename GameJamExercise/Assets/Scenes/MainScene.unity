@@ -418,6 +418,10 @@ MonoBehaviour:
     variable: {fileID: 11400000, guid: 51c73d8725c81424385d2174fb9395d7, type: 2}
   turnHandler: {fileID: 11400000, guid: 02a5a1ac8d2f3884c9791a549a49d4e7, type: 2}
   world: {fileID: 863979778}
+  IsGamePaused:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 758674179b876424484107df7b542165, type: 2}
   onGameStarted: {fileID: 11400000, guid: 84047d431b83d114c940af552b07a292, type: 2}
   onGameEnded: {fileID: 11400000, guid: 3d593bac93e5e6341923267398b7f3d6, type: 2}
   onClearTrash: {fileID: 11400000, guid: 4562f093afa74db4e8ed7ed63cbf4a49, type: 2}
@@ -650,6 +654,8 @@ MonoBehaviour:
   levelDatas:
   - {fileID: 11400000, guid: b5e70d5f74bc8094f8098e20951b2e37, type: 2}
   - {fileID: 11400000, guid: f723684edf6fb2f45b1635b14ca71ddc, type: 2}
+  - {fileID: 11400000, guid: b7a61e8faa25bbe4196b19535cb389e5, type: 2}
+  - {fileID: 11400000, guid: 3b2d426e9391d984fa527e9aac53be42, type: 2}
   chosenLevelData:
     useConstant: 0
     constantValue: {fileID: 11400000, guid: b5e70d5f74bc8094f8098e20951b2e37, type: 2}
