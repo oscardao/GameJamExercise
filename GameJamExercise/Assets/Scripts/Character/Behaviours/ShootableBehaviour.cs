@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ShootableBehaviour : MonoBehaviour {
+public class ShootableBehaviour : MonoBehaviour, ISpecialEnemyBehaviour {
 
     [Header("Effects")]
     [SerializeField]
@@ -50,7 +50,7 @@ public class ShootableBehaviour : MonoBehaviour {
         this.positionable.OnReposition.RemoveListener(OnReposition);
     }
 
-    public IEnumerator PrepareShot() {
+    public IEnumerator Prepare() {
         this.positionable.OnReposition.AddListener(OnReposition);
         this.animator.SetTrigger(this.prepareAttackTrigger);
         this.animator.SetBool("isPrepared", true);
@@ -100,7 +100,7 @@ public class ShootableBehaviour : MonoBehaviour {
         }
     }
 
-    public IEnumerator Shoot() {
+    public IEnumerator Perform() {
         this.positionable.OnReposition.RemoveListener(OnReposition);
         this.animator.SetBool("isPrepared", false);
         this.animator.SetTrigger(this.onAttackTrigger);

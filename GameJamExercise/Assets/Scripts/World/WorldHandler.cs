@@ -69,7 +69,7 @@ public class WorldHandler : MonoBehaviour {
             for (int y = 0; y < map.height; y++) {
                 Color cellColor = map.GetPixel(x, y);
 
-                if (cellColor.Equals(Color.magenta)) {
+                if (cellColor.Equals(Color.blue)) {
                     continue;
                 } else if (cellColor.Equals(Color.green)) {
                     WorldTile worldTile = AddTile(new Vector2Int(x, y));

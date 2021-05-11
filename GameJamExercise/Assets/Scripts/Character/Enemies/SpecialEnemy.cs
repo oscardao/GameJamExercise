@@ -4,8 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ShootableBehaviour))]
-public class RangedEnemy : MonoBehaviour, ITargeting {
+public class SpecialEnemy : MonoBehaviour, ITargeting {
     [Header("Targeting")]
     [SerializeField]
     private GameObjectReference target;
@@ -20,22 +19,22 @@ public class RangedEnemy : MonoBehaviour, ITargeting {
     private ICommandable commandable;
 
     [Header("Behaviour")]
-    private bool IsPreparedToShoot;
+    private bool IsPrepared;
     [SerializeField]
     private RangedInt shotCoolDown;
     private int coolDown;
 
     [Header("Actions")]
-    private ShootableBehaviour shootingAction;
+    private ISpecialEnemyBehaviour specialBehaviour;
 
     [SerializeField]
     private AIBrain brain;
 
     private void Awake() {
         this.coolDown = this.shotCoolDown.Value;
-        this.IsPreparedToShoot = false;
+        this.IsPrepared = false;
         this.commandable = GetComponent<ICommandable>();
-        this.shootingAction = GetComponent<ShootableBehaviour>();
+        this.specialBehaviour = GetComponent<ISpecialEnemyBehaviour>();
     }
 
     public void TakeTurn() {
@@ -43,16 +42,16 @@ public class RangedEnemy : MonoBehaviour, ITargeting {
     }
 
     private IEnumerator PerformAction() {
-        if (this.IsPreparedToShoot) {
-            this.IsPreparedToShoot = false;
+        if (this.IsPrepared) {
+            this.IsPrepared = false;
             this.coolDown = this.shotCoolDown.Value;
-            yield return this.shootingAction.Shoot();
+            yield return this.specialBehaviour.Perform();
 
         } else {
             this.coolDown--;
             if (this.coolDown <= 0) {
-                this.IsPreparedToShoot = true;
-                yield return this.shootingAction.PrepareShot();
+                this.IsPrepared = true;
+                yield return this.specialBehaviour.Prepare();
 
             } else {
                 yield return this.brain.OnTakeTurn(gameObject);
