@@ -36,13 +36,14 @@ public class SwingerBehaviour : MonoBehaviour, ISpecialEnemyBehaviour {
     }
 
     public IEnumerator Perform() {
-        DestroyIndicators();
-
         this.positionable.OnReposition.RemoveListener(OnReposition);
         this.animator.SetBool("isPrepared", false);
 
+        DestroyIndicators();
+
         for (int i = 0; i < this.targetedTiles.Count; i++) {
             if (this.targetedTiles[i].ObjectOnTile == this.targeting.Target) {
+
                 this.attackAction.Perform(this.targetedTiles[i], gameObject);
                 yield return new WaitForSeconds(this.attackAction.Duration);
                 yield break;
@@ -66,20 +67,21 @@ public class SwingerBehaviour : MonoBehaviour, ISpecialEnemyBehaviour {
     private IEnumerator UpdateIndicators(float delay) {
         DestroyIndicators();
 
-        this.targetedTiles = this.world.GetNeighbourTiles(this.positionable.WorldTile, false);
+        this.targetedTiles = this.world.GetDiagonalNeighbourTiles(this.positionable.WorldTile);
 
-        for (int i = 0; i < this.targetedTiles.Count; i++) {
+        for (int i = this.targetedTiles.Count - 1; i >= 0; i--) {
             GameObject indicator = Instantiate(this.dangerIndicatorPrefab, transform);
             indicator.transform.position = this.targetedTiles[i].WorldPosition;
             this.activeIndicators.Push(indicator);
             yield return new WaitForSeconds(delay);
         }
+
     }
 
     private void DestroyIndicators() {
         while (this.activeIndicators.Count > 0) {
             Destroy(this.activeIndicators.Pop());
         }
-        this.targetedTiles.Clear();
+
     }
 }

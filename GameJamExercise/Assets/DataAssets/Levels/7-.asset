@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08786a1cbacae6a48846cf04cfe8e7cd, type: 3}
-  m_Name: 6
+  m_Name: 7-
   m_EditorClassIdentifier: 
-  appearsAtLevel: 6
+  appearsAtLevel: 7
   maps:
   - {fileID: 2800000, guid: ddc4633c95dbfb745bd4d2f359627aa5, type: 3}
   - {fileID: 2800000, guid: 5a042046e0513f34c9496d45786e736d, type: 3}
@@ -20,7 +20,9 @@ MonoBehaviour:
   - {fileID: 2800000, guid: ebe41beb1a9e9144fac13444f7d5ea40, type: 3}
   - {fileID: 2800000, guid: 00f76500a2e5cb443b8077d6badac954, type: 3}
   - {fileID: 2800000, guid: d61dcac7a27978244b7e7f8eafd9569b, type: 3}
-  numberOfEnemies: 2
+  numberOfEnemies: 4
   enemies:
+  - {fileID: 3431520136475041380, guid: aaa061076452b824c9aaa4797c193191, type: 3}
+  - {fileID: 1419710753641762874, guid: 33ca937655ba194418c9d136d2c2d653, type: 3}
   - {fileID: 613495471529103686, guid: 0bc5457b10f8157448b38a19ee396e8d, type: 3}
-  numberOfItems: 2
+  numberOfItems: 4

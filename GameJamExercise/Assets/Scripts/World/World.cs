@@ -25,6 +25,26 @@ public class World : ScriptableObject {
         return GetNeighbourTiles(tile.Position, ignoreDiagonals);
     }
 
+    public List<WorldTile> GetDiagonalNeighbourTiles(WorldTile tile) {
+        return GetDiagonalNeighbourTiles(tile.Position);
+    }
+
+    public List<WorldTile> GetDiagonalNeighbourTiles(Vector2Int position) {
+        List<WorldTile> tiles = new List<WorldTile>();
+        for (int x = -1; x <= 1; x++) {
+            for (int y = -1; y <= 1; y++) {
+                if (y == 0 && x == 0) continue;
+                if (Mathf.Abs(x) == Mathf.Abs(y)) {
+                    Vector2Int spot = position + new Vector2Int(x, y);
+                    if (this.tiles.ContainsKey(spot)) {
+                        tiles.Add(this.tiles[spot]);
+                    }
+                }
+            }
+        }
+        return tiles;
+    }
+
     public List<WorldTile> GetNeighbourTiles(Vector2Int position, bool ignoreDiagonals = true) {
         List<WorldTile> tiles = new List<WorldTile>();
 

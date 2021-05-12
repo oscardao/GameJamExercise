@@ -652,7 +652,11 @@ MonoBehaviour:
     variable: {fileID: 11400000, guid: 51c73d8725c81424385d2174fb9395d7, type: 2}
   world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
   levelDatas:
+  - {fileID: 11400000, guid: b5e70d5f74bc8094f8098e20951b2e37, type: 2}
+  - {fileID: 11400000, guid: f723684edf6fb2f45b1635b14ca71ddc, type: 2}
+  - {fileID: 11400000, guid: b7a61e8faa25bbe4196b19535cb389e5, type: 2}
   - {fileID: 11400000, guid: 8523af08ac74421498f3efd5e579cc92, type: 2}
+  - {fileID: 11400000, guid: d3237ee4bf0e5714e892dd85f18e4248, type: 2}
   chosenLevelData:
     useConstant: 0
     constantValue: {fileID: 11400000, guid: b5e70d5f74bc8094f8098e20951b2e37, type: 2}

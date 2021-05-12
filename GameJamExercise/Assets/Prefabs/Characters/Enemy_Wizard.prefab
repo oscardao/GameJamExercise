@@ -131,7 +131,7 @@ MonoBehaviour:
   world: {fileID: 11400000, guid: 236bc14e3c934d84da410a5515252686, type: 2}
   shotCoolDown:
     _min: 2
-    _max: 5
+    _max: 3
   brain: {fileID: 11400000, guid: d709d1d24c46b5b46a47854fb0dfac9d, type: 2}
 --- !u!114 &2398871305752617054
 MonoBehaviour:
