@@ -16,16 +16,18 @@ namespace OsukaCreative.TheDayIRice.UI {
         private AudioMixer audioMixer;
         [SerializeField]
         private string exposedParameter = "volume";
+
+        [Header("Save Data")]
         [SerializeField]
-        private FloatReference audioVolumeLevel;
+        private string saveKey = "AudioVolume";
 
         private void Start() {
-            this.slider.value = this.audioVolumeLevel.Value;
+            this.slider.value = PlayerPrefs.GetFloat(this.saveKey);
             this.slider.onValueChanged.AddListener(SetVolume);
         }
 
         public void SetVolume(float value) {
-            this.audioVolumeLevel.Value = value;
+            PlayerPrefs.SetFloat(saveKey, value);
             this.audioMixer.SetFloat(this.exposedParameter, Mathf.Log10(value) * 20);
         }
     }
