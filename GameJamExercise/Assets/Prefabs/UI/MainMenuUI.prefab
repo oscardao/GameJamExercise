@@ -57,7 +57,7 @@ MonoBehaviour:
         m_MethodName: OpenPage
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 6092341365630948766, guid: f7fb0f2fcc07d49459b26548438b95bd, type: 3}
+          m_ObjectArgument: {fileID: 449550490774213206, guid: 13dc95054abf15f42bb1b024b51d25dc, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
