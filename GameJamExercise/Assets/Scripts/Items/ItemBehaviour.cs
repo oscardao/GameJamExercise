@@ -23,6 +23,10 @@ public class ItemBehaviour : MonoBehaviour, IInteractable, IPickupable {
     [SerializeField]
     private NoArgEvent onItemPickedUp;
 
+    [SerializeField]
+    private AudioClip[] sounds;
+
+
     public void Setup(Item item) {
         itemsInWorld.Add(item);
         this.itemData = item;
@@ -34,6 +38,7 @@ public class ItemBehaviour : MonoBehaviour, IInteractable, IPickupable {
     }
 
     public void OnPickup(GameObject interacter) {
+        AudioManager.Instance.PlayAudio(this.sounds[Random.Range(0, this.sounds.Length)]);
         this.onItemPickedUp.Raise();
         IInventory inventory = interacter.GetComponent<IInventory>();
         inventory.AddItem(this.itemData);

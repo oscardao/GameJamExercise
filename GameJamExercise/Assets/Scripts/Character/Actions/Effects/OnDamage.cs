@@ -17,7 +17,11 @@ public class OnDamage : ScriptableObject {
     [SerializeField]
     private float knockBackForce;
 
+    [SerializeField]
+    private AudioClip[] sounds;
+
     public IEnumerator DamageObject(GameObject target, float duration) {
+        AudioManager.Instance.PlayAudio(this.sounds[UnityEngine.Random.Range(0, this.sounds.Length)]);
         IAnimateable targetAnimator = target.GetComponent<IAnimateable>();
         targetAnimator.SetTrigger(this.onDamageTrigger);
 

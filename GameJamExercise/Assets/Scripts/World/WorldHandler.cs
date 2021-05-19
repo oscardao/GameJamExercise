@@ -42,6 +42,7 @@ public class WorldHandler : MonoBehaviour {
     private List<GameObject> tilesSpawned;
 
 
+
     public IEnumerator Generate() {
         this.world.Clear();
         this.itemHandler.ClearItemsInWorld();
@@ -127,6 +128,10 @@ public class WorldHandler : MonoBehaviour {
         yield return new WaitForSeconds(this.flyDuration);
     }
 
+    [SerializeField]
+    private AudioClip[] sounds;
+
+
     private IEnumerator FlyTile(GameObject tile, Vector3 endValue, bool destroy) {
         Transform transform = tile.transform;
         Vector3 startValue = transform.position;
@@ -142,7 +147,11 @@ public class WorldHandler : MonoBehaviour {
         }
 
         transform.position = endValue;
-        if (destroy) Destroy(tile);
+        if (destroy) {
+            Destroy(tile);
+        } else {
+            AudioManager.Instance.PlayAudio(this.sounds[Random.Range(0, this.sounds.Length)]);
+        }
     }
 
 

@@ -203,6 +203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1c6c43b1514f64e92bb9a61bf37c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSounds:
+  - {fileID: 8300000, guid: 3f6303faa3494ce4ea6698b517f9a02f, type: 3}
+  - {fileID: 8300000, guid: 01c082de95013dd4394b6f50b228256a, type: 3}
   IsArmored: 0
   onDeath: {fileID: 11400000, guid: c9e60e8d2b1a6a24598c76bb98bd59c6, type: 2}
 --- !u!114 &4792878351240546260

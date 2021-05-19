@@ -16,3 +16,6 @@ MonoBehaviour:
   onIdleTrigger: onIdle
   flashMaterial: {fileID: 2100000, guid: 9ab71868802914a46a13d9817167df42, type: 2}
   knockBackForce: 0
+  sounds:
+  - {fileID: 8300000, guid: a00094a0175f5074eb553bfc38a8e6e3, type: 3}
+  - {fileID: 8300000, guid: 50864e55559b8e64896acc9eb9ec79d6, type: 3}

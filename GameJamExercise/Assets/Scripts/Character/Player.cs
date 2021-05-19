@@ -24,6 +24,8 @@ public class Player : MonoBehaviour {
     [Header("Inventory")]
     [SerializeField]
     private IntReference clocks;
+    [SerializeField]
+    private AudioClip[] useClockSounds;
 
     private void Awake() {
         this.commandable = GetComponent<ICommandable>();
@@ -59,6 +61,7 @@ public class Player : MonoBehaviour {
 
     private void Update() {
         if (this.hasTurn && Input.GetKeyDown(KeyCode.C) && this.clocks.Value > 0) {
+            AudioManager.Instance.PlayAudio(this.useClockSounds[Random.Range(0, this.useClockSounds.Length)]);
             this.clocks.Value--;
             this.remainingTurns.Value++;
         }

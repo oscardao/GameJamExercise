@@ -69,6 +69,8 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: c52abb58e9040b6438d6473bd636c79b, type: 2}
+  useClockSounds:
+  - {fileID: 8300000, guid: e21acf5481be8704cb3221c852d15855, type: 3}
 --- !u!114 &4683512952322915372
 MonoBehaviour:
   m_ObjectHideFlags: 0

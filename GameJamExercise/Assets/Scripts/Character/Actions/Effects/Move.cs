@@ -4,7 +4,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Actions/Effects/Move")]
 public class Move : ScriptableObject {
 
+    [SerializeField]
+    private AudioClip[] sounds;
+
     public IEnumerator MoveTo(WorldTile targetTile, float duration, GameObject gameObject) {
+        AudioManager.Instance.PlayAudio(this.sounds[Random.Range(0, this.sounds.Length)]);
+
         IPositionable positionable = gameObject.GetComponent<IPositionable>();
 
         WorldTile currentTile = positionable.WorldTile;

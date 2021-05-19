@@ -164,6 +164,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3222913998378113988}
   interaction: {fileID: 11400000, guid: 0824892e9aae1684da8bc4bbf68911e6, type: 2}
   onItemPickedUp: {fileID: 11400000, guid: 90d0465caa87ca840be81f170c64ba14, type: 2}
+  sounds:
+  - {fileID: 8300000, guid: 43015d729db4f724b9880c90e9f779a0, type: 3}
 --- !u!114 &1056818742874348627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec93f312e68f81a4f844f268dff8a606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onReposition:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1361250221009811770
 MonoBehaviour:
   m_ObjectHideFlags: 0

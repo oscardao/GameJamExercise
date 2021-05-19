@@ -27,6 +27,7 @@ namespace OsukaCreative.TheDayIRice.UI {
         }
 
         public void SetVolume(float value) {
+            Debug.Log(value + "     " + Mathf.Log10(value) * 20);
             PlayerPrefs.SetFloat(saveKey, value);
             this.audioMixer.SetFloat(this.exposedParameter, Mathf.Log10(value) * 20);
         }

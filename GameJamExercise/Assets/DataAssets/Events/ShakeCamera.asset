@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8061f14c680ddf44b923a44367a1a452, type: 3}
-  m_Name: OnMove
+  m_Script: {fileID: 11500000, guid: 4edc3cb6a45ce444ea5197dc9a3f641f, type: 3}
+  m_Name: ShakeCamera
   m_EditorClassIdentifier: 
-  sounds:
-  - {fileID: 8300000, guid: acfd16038246af740b08be9dedea3692, type: 3}
-  - {fileID: 8300000, guid: ad3fce089fc7fb64f86f43e0a4955199, type: 3}

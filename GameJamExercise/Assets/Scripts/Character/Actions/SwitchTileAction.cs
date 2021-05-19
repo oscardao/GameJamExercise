@@ -8,7 +8,13 @@ public class SwitchTileAction : BaseAction {
     [SerializeField]
     private Flip flip;
 
+
+    [SerializeField]
+    private AudioClip[] sounds;
+
     public override void Perform(WorldTile tile, GameObject performer) {
+        AudioManager.Instance.PlayAudio(this.sounds[Random.Range(0, this.sounds.Length)]);
+
         GameObject target = tile.ObjectOnTile;
 
         tile.StartCoroutine(this.flip.FlipObject(target.transform.position, 0, performer));

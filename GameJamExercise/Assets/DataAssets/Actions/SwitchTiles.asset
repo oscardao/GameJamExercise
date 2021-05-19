@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.115
   flip: {fileID: 11400000, guid: e38a4fe667c45c84ca2f219d86693a63, type: 2}
+  sounds:
+  - {fileID: 8300000, guid: ad3fce089fc7fb64f86f43e0a4955199, type: 3}
+  - {fileID: 8300000, guid: acfd16038246af740b08be9dedea3692, type: 3}

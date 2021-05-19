@@ -12,6 +12,7 @@ public class Attack : ScriptableObject {
     [SerializeField]
     private string onIdleTrigger = "onIdle";
 
+
     public IEnumerator AttackTarget(GameObject target, float duration, GameObject attacker) {
         IAnimateable attackerAnimator = attacker.GetComponent<IAnimateable>();
         attackerAnimator.SetTrigger(this.onAttackTrigger);

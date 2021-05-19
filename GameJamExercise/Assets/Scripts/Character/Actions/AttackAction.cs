@@ -41,6 +41,7 @@ public class AttackAction : BaseAction {
     }
 
     private void PerformEffects(WorldTile tile, GameObject attacker) {
+
         GameObject target = tile.ObjectOnTile;
 
         tile.StartCoroutine(this.attack.AttackTarget(target, this.duration, attacker));
@@ -49,7 +50,6 @@ public class AttackAction : BaseAction {
 
         Vector3 knockbackDirection = target.transform.position - attacker.transform.position;
         tile.StartCoroutine(this.moveTowards.MoveObjectTowards(target, knockbackDirection, this.duration));
-        //  tile.StartCoroutine(this.moveTowards.MoveObjectTowards(attacker, knockbackDirection, this.duration));
     }
 
 }
