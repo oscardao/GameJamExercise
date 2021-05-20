@@ -16,9 +16,9 @@ MonoBehaviour:
   maps:
   - {fileID: 2800000, guid: ddc4633c95dbfb745bd4d2f359627aa5, type: 3}
   - {fileID: 2800000, guid: 5a042046e0513f34c9496d45786e736d, type: 3}
-  - {fileID: 2800000, guid: 00f76500a2e5cb443b8077d6badac954, type: 3}
-  - {fileID: 2800000, guid: ebe41beb1a9e9144fac13444f7d5ea40, type: 3}
   - {fileID: 2800000, guid: c6fc7bc5e5bf0384e9e91370afc64334, type: 3}
+  - {fileID: 2800000, guid: ebe41beb1a9e9144fac13444f7d5ea40, type: 3}
+  - {fileID: 2800000, guid: 00f76500a2e5cb443b8077d6badac954, type: 3}
   - {fileID: 2800000, guid: d61dcac7a27978244b7e7f8eafd9569b, type: 3}
   numberOfEnemies: 4
   enemies:

@@ -64,7 +64,7 @@ public class Game : MonoBehaviour {
         yield return new WaitForSeconds(this.nextLevelDelay);
         yield return this.world.ClearWorld();
         this.level.Value++;
-        yield return new WaitForSeconds(this.nextLevelDelay);
+        yield return new WaitForSeconds(this.startGameDelay);
         yield return this.world.Generate();
         this.turnHandler.StartRound();
     }

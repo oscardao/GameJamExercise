@@ -572,9 +572,9 @@ MonoBehaviour:
   onGameStarted: {fileID: 11400000, guid: 84047d431b83d114c940af552b07a292, type: 2}
   onGameEnded: {fileID: 11400000, guid: 3d593bac93e5e6341923267398b7f3d6, type: 2}
   onClearTrash: {fileID: 11400000, guid: 4562f093afa74db4e8ed7ed63cbf4a49, type: 2}
-  startGameDelay: 0.8
-  nextLevelDelay: 1.75
-  endGameDelay: 1.75
+  startGameDelay: 0.6
+  nextLevelDelay: 1.2
+  endGameDelay: 1.5
 --- !u!4 &474911364
 Transform:
   m_ObjectHideFlags: 0
@@ -671,7 +671,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: -10}
+  m_LocalPosition: {x: 0, y: 0.85, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -811,12 +811,15 @@ MonoBehaviour:
   tilePrefab: {fileID: 6632879156637247636, guid: 438a8776e3cc89447b42824d17f7145e, type: 3}
   itemHandler: {fileID: 1748933762}
   characterSpawner: {fileID: 1118087788}
-  tileSpawn: {x: 0, y: -4, z: 0}
+  tileSpawn: {x: 0, y: -5.5, z: 0}
   flyDuration: 0.4
   timeBetweeenFlys: 0.06
-  sounds:
-  - {fileID: 8300000, guid: ad3fce089fc7fb64f86f43e0a4955199, type: 3}
-  - {fileID: 8300000, guid: acfd16038246af740b08be9dedea3692, type: 3}
+  spawnSounds:
+  - {fileID: 8300000, guid: 1945fb5760abb254484a203797d34214, type: 3}
+  - {fileID: 8300000, guid: 4447f42127045f04ca9e4336ac20d1d8, type: 3}
+  destroySounds:
+  - {fileID: 8300000, guid: 3909d92d3202775459de9f54e8de25a7, type: 3}
+  - {fileID: 8300000, guid: 63541092bfaafa1458ae574848d7bc86, type: 3}
 --- !u!4 &863979779
 Transform:
   m_ObjectHideFlags: 0

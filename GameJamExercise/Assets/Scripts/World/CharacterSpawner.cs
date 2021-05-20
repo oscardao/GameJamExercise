@@ -23,13 +23,15 @@ public class CharacterSpawner : MonoBehaviour {
 
     public void PlaceCharacters(List<WorldTile> playerTiles, List<WorldTile> enemyTiles) {
         this.enemiesInWorld.Clear();
+        GameObject[] enemies = this.chosenLevelData.Value.Enemies;
+        Debug.Log(enemies.Length + "   " + enemyTiles.Count + "    " + playerTiles.Count);
 
         WorldTile playerTile = playerTiles[Random.Range(0, playerTiles.Count)];
         GameObject player = Instantiate(this.playerPrefab, playerTile.WorldPosition, Quaternion.identity);
         playerTile.ObjectOnTile = player;
         this.playerVariable.Value = player;
 
-        GameObject[] enemies = this.chosenLevelData.Value.Enemies;
+
 
         for (int i = 0; i < this.chosenLevelData.Value.NumberOfEnemies; i++) {
             WorldTile enemyTile = enemyTiles[Random.Range(0, enemyTiles.Count)];

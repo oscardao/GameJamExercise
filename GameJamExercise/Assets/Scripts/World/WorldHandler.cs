@@ -129,10 +129,17 @@ public class WorldHandler : MonoBehaviour {
     }
 
     [SerializeField]
-    private AudioClip[] sounds;
+    private AudioClip[] spawnSounds;
 
+    [SerializeField]
+    private AudioClip[] destroySounds;
 
     private IEnumerator FlyTile(GameObject tile, Vector3 endValue, bool destroy) {
+
+        if (destroy) {
+            AudioManager.Instance.PlayAudio(this.destroySounds[Random.Range(0, this.destroySounds.Length)]);
+        }
+
         Transform transform = tile.transform;
         Vector3 startValue = transform.position;
 
@@ -150,7 +157,7 @@ public class WorldHandler : MonoBehaviour {
         if (destroy) {
             Destroy(tile);
         } else {
-            AudioManager.Instance.PlayAudio(this.sounds[Random.Range(0, this.sounds.Length)]);
+            AudioManager.Instance.PlayAudio(this.spawnSounds[Random.Range(0, this.spawnSounds.Length)]);
         }
     }
 

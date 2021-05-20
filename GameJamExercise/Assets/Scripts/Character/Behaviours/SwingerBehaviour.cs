@@ -70,12 +70,18 @@ public class SwingerBehaviour : MonoBehaviour, ISpecialEnemyBehaviour {
         this.targetedTiles = this.world.GetDiagonalNeighbourTiles(this.positionable.WorldTile);
 
         for (int i = this.targetedTiles.Count - 1; i >= 0; i--) {
-            GameObject indicator = Instantiate(this.dangerIndicatorPrefab, transform);
-            indicator.transform.position = this.targetedTiles[i].WorldPosition;
+            WorldTile tile = this.targetedTiles[i];
+            GameObject indicator = Instantiate(this.dangerIndicatorPrefab, tile.transform);
+            indicator.transform.position = tile.WorldPosition;
             this.activeIndicators.Push(indicator);
             yield return new WaitForSeconds(delay);
         }
 
+    }
+
+    private void OnDisable() {
+        DestroyIndicators();
+        this.positionable.OnReposition.RemoveListener(OnReposition);
     }
 
     private void DestroyIndicators() {

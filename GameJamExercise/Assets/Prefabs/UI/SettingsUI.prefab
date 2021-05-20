@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 874628602279166766}
   - component: {fileID: 8443932548275699686}
   - component: {fileID: 9016807590109685948}
+  - component: {fileID: 5444552747087712987}
   m_Layer: 5
   m_Name: SettingsUI
   m_TagString: Untagged
@@ -75,6 +76,102 @@ MonoBehaviour:
   animator: {fileID: 8443932548275699686}
   onHideTrigger: onHide
   onExposeTrigger: onExpose
+--- !u!82 &5444552747087712987
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449550490774213206}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 445506072e8262241b6c649288294d9e, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 7dd0141e5a42f24468ce68ba310f3dfd, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &4317072655030165001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +447,7 @@ PrefabInstance:
     - target: {fileID: 3990909015188612260, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1249017446816612481}
+      objectReference: {fileID: 5444552747087712987}
     - target: {fileID: 3990909015188612260, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -491,16 +588,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1400752473886120807, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
 --- !u!224 &3839196287824494412 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3990909015188612266, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
-  m_PrefabInstance: {fileID: 154562971102501862}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1249017446816612481 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1400752473886120807, guid: 3df22ef6bf7c2914890b3b24f6b0a378, type: 3}
   m_PrefabInstance: {fileID: 154562971102501862}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &995626467852732830
