@@ -17,10 +17,6 @@ public class AudioManager : MonoBehaviour {
 
     [Header("Audio Values")]
     [SerializeField]
-    private float minimumValue = 0.0001f;
-    [SerializeField]
-    private float maximumValue = 1f;
-    [SerializeField]
     private float defaultValue = 0.75f;
 
     [Header("Save Data")]
