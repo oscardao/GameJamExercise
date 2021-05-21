@@ -576,7 +576,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Simple of Dungeons
+  m_text: Simplest of Dungeons
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5610458f34accf4c945dbd5061aa537, type: 2}
   m_sharedMaterial: {fileID: -8303976365787510502, guid: b5610458f34accf4c945dbd5061aa537, type: 2}
